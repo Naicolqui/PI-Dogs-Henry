@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 const GET_BREED = "GET_BREED";
+const GET_TEMPER = "GET_TEMPER";
 
 export const getBreed = ()=>{
     return async (dispatch)=>{
@@ -8,6 +9,16 @@ export const getBreed = ()=>{
         dispatch ({
             type: GET_BREED,
             payload: pedidoApi.data
+        })
+    }
+}
+
+export const getTemper = ()=>{
+    return async (dispatch)=>{
+        let pedidoApiTemper = await axios.get("http://localhost:3001/tempers");
+        dispatch({
+            type: GET_TEMPER,
+            payload: pedidoApiTemper.data
         })
     }
 }

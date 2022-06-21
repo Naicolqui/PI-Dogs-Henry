@@ -58,6 +58,20 @@ router.get('/:id', async(req, res, next)=>{
     }
 });
 
+//---------------------------------Relación entre razas y temperamento --------------------------------------
+
+router.post('/:idBreed/types/:idTemper', async (req, res, next)=>{
+    try{
+        const {idBreed, idTemper} = req.params;
+        const breed = await Breed.findByPk(idBreed);
+        await breed.addType(idTemper);
+        res.send(200);
+    } catch(error){
+        next(error);
+    }
+});
+
+
 //Ruta de delete
 // router.delete("/:id", async function (req, res) {
 //     const { id } = req.params;

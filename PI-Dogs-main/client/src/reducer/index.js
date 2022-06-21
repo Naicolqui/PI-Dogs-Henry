@@ -1,7 +1,8 @@
 const GET_BREED = "GET_BREED";
 
 let initialState = {
-    breed: []
+    breed: [],
+    temper: []
 };
 
 export default function rootReducer(state=initialState, action){
@@ -10,6 +11,11 @@ export default function rootReducer(state=initialState, action){
             return {
                 ...state,
                 breed: action.payload
+            };
+        case GET_TEMPER:
+            return{
+                ...state,
+                temper: action.payload
             };
         default:
             return state;

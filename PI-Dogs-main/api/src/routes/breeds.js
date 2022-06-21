@@ -60,11 +60,11 @@ router.get('/:id', async(req, res, next)=>{
 
 //---------------------------------Relación entre razas y temperamento --------------------------------------
 
-router.post('/:idBreed/types/:idTemper', async (req, res, next)=>{
+router.post('/:idBreed/temper/:idTemper', async (req, res, next)=>{
     try{
         const {idBreed, idTemper} = req.params;
         const breed = await Breed.findByPk(idBreed);
-        await breed.addType(idTemper);
+        await breed.addTemper(idTemper);
         res.send(200);
     } catch(error){
         next(error);

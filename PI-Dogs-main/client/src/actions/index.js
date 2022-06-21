@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const GET_BREED = "GET_BREED";
 const GET_TEMPER = "GET_TEMPER";
+const FILTER_BY_TEMPER = "FILTER_BY_TEMPER";
 
 export const getBreed = ()=>{
     return async (dispatch)=>{
@@ -20,5 +21,12 @@ export const getTemper = ()=>{
             type: GET_TEMPER,
             payload: pedidoApiTemper.data
         })
+    }
+}
+
+export const filterBreedByTemper = (payload)=>{
+    return{
+        type: FILTER_BY_TEMPER,
+        payload
     }
 }

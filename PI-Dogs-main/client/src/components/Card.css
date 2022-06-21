@@ -1,0 +1,22 @@
+.card {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    margin: 20px;
+    width: 300px;
+  }
+
+  .card img{
+    width: 200px;
+    height: inherit;
+  }
+
+  .card h4 {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    padding: 1rem;
+  }

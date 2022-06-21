@@ -1,0 +1,14 @@
+.paginate {
+    list-style: none;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.paginate li {
+    display: inline;
+}
+
+.paginate li a {
+    margin: 10px;
+}

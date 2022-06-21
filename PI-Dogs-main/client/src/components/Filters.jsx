@@ -8,12 +8,12 @@ export default function Filters (){
                <option value="Z-A">Z-A</option>
            </select>
            <select>
-               <option value="todos">Todos</option>
+               <option value="all">Todos</option>
                <option value="pesados">Mas Pesados</option>
                <option value="livianos">Mas Livianos</option>
             </select>
             <select>
-               <option value="todos">Todos</option>
+               <option value="all">Todos</option>
                <option value="api">Desde la API</option>
                <option value="db">Desde DB</option>
             </select>

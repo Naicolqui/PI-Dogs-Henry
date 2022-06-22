@@ -3,6 +3,8 @@ import axios from 'axios';
 const GET_BREED = "GET_BREED";
 const GET_TEMPER = "GET_TEMPER";
 const FILTER_BY_TEMPER = "FILTER_BY_TEMPER";
+const GET_BY_ORIGIN = "GET_BY_ORIGIN"
+const GET_BY_NAME = "GET_BY_NAME"
 
 export const getBreed = ()=>{
     return async (dispatch)=>{
@@ -27,6 +29,20 @@ export const getTemper = ()=>{
 export const filterBreedByTemper = (payload)=>{
     return{
         type: FILTER_BY_TEMPER,
+        payload
+    }
+}
+
+export const filterByOrigin = (payload)=>{
+    return {
+        type: GET_BY_ORIGIN,
+        payload
+    }
+}
+
+export const filterByName = (payload)=>{
+    return {
+        type: GET_BY_NAME,
         payload
     }
 }

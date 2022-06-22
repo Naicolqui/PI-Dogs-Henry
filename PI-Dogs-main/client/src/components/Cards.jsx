@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import Card from "./Card";
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
-import { filterBreedByTemper, getBreed, getTemper } from "../actions";
+import { filterBreedByTemper, filterByName, filterByOrigin, getBreed, getTemper } from "../actions";
 import Paginate from "./Paginate";
 import './Cards.css'
 
@@ -14,6 +14,7 @@ export default function Cards(){
     //---------------------Paginado---------------------
     const [currentPage, setCurrentPage] = useState(1);
     const [breedsPerPage] = useState(8);
+    const [order, setOrder] = useState('');
     const lastBreedIndex = currentPage * breedsPerPage;
     const firstBreedIndex = lastBreedIndex - breedsPerPage;
     const currentBreeds = actualState.slice(firstBreedIndex, lastBreedIndex);
@@ -41,6 +42,20 @@ export default function Cards(){
         dispatch(filterBreedByTemper(e.target.value))
     }
 
+    function handleByOrigin(e){
+        e.preventDefault()
+        setCurrentPage(1)
+        dispatch(filterByOrigin(e.target.value))
+    }
+
+    function handleByName(e){
+        e.preventDefault()
+        dispatch(filterByName(e.target.value))
+        setCurrentPage(1)
+        setOrder(`Ordenado ${e.target.value}`)
+    }
+
+
 
     //-------------------------------------Renderizado-------------------------------------
     // .sort(function(a,b){
@@ -63,7 +78,7 @@ export default function Cards(){
                 }
             </select>
 
-            <select>
+            <select onChange={e=> handleByName(e)}>
                 <option value="A-Z">A-Z</option>
                 <option value="Z-A">Z-A</option>
             </select>
@@ -73,7 +88,7 @@ export default function Cards(){
                 <option value="less">Más livianos</option>
             </select>
 
-            <select>
+            <select onChange={e=> handleByOrigin(e)}>
                 <option value="all">Todos los perros</option>
                 <option value="api">Perros de la API</option>
                 <option value="db">Perros de la Base de Datos</option>

@@ -41,21 +41,42 @@ export default function Cards(){
         dispatch(filterBreedByTemper(e.target.value))
     }
 
+
+    //-------------------------------------Renderizado-------------------------------------
+    // .sort(function(a,b){
+    //     if(a.name<b.name) return -1;
+    //     if(a.name>b.name) return 1;
+    //     return 0;
+    // }) PARA EL FILTRO DE TEMPERAMENTOS
+
     return (
         <div>
+
             <select onChange={e=> handleByTemper(e)}>
                 <option key={0} value='all'>Todos los temperamentos</option>
                 {
-                    actualStateTemper?.sort(function(a,b){
-                        if(a.name<b.name) return -1;
-                        if(a.name>b.name) return 1;
-                        return 0;
-                    }).map(t=>{
+                    actualStateTemper?.map(t=>{
                         return (
                             <option key={t.id} value={t.name}>{t.name}</option>
                         );
                     })
                 }
+            </select>
+
+            <select>
+                <option value="A-Z">A-Z</option>
+                <option value="Z-A">Z-A</option>
+            </select>
+
+            <select>
+                <option value="most">Más pesados</option>
+                <option value="less">Más livianos</option>
+            </select>
+
+            <select>
+                <option value="all">Todos los perros</option>
+                <option value="api">Perros de la API</option>
+                <option value="db">Perros de la Base de Datos</option>
             </select>
 
             <div>

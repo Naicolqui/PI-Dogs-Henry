@@ -28,10 +28,10 @@ export default function rootReducer(state=initialState, action){
                 if(typeof b.temper === 'string'){
                     return b.temper.includes(action.payload);
                 }
-                if(Array.isArray(b.temper)){
-                    let temperaments = b.temper.map(el=>el.name);
-                    return temperaments.includes(action.payload);
-                }
+                // if(Array.isArray(b.temper)){
+                //     let temperaments = b.temper.map(el=>el.name);
+                //     return temperaments.includes(action.payload);
+                // }
                 return true;
             })
             return {

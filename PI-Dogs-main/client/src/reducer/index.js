@@ -2,7 +2,8 @@ const GET_BREED = "GET_BREED";
 const GET_TEMPER = "GET_TEMPER";
 const FILTER_BY_TEMPER = "FILTER_BY_TEMPER";
 const GET_BY_ORIGIN = "GET_BY_ORIGIN";
-const GET_BY_NAME = "GET_BY_NAME"
+const GET_BY_NAME = "GET_BY_NAME";
+const GET_BY_WEIGHT = "GET_BY_WEIGHT";
 
 let initialState = {
     breed: [],
@@ -62,6 +63,21 @@ export default function rootReducer(state=initialState, action){
             return {
                 ...state,
                 breed: filteredBreedByName
+            };
+        case GET_BY_WEIGHT:
+            const breedsWeight = state.savedBreed;
+            const filteredByWeight = action.payload === 'most' ? breedsWeight.sort(function(a,b){
+                const itemA = parseInt(a.weightMin);
+                const itemB = parseInt(b.weightMin);
+                return itemA - itemB;
+            }) : breedsWeight.sort(function(a,b){
+                const itemA = parseInt(a.weightMin);
+                const itemB = parseInt(b.weightMin);
+                return itemB - itemA;
+            })
+            return {
+                ...state,
+                breed: action.payload === 'all' ? breedsWeight : filteredByWeight
             };
 
         default:

@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import Card from "./Card";
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
-import { filterBreedByTemper, filterByName, filterByOrigin, getBreed, getTemper } from "../actions";
+import { filterBreedByTemper, filterByName, filterByOrigin, filterByWeight, getBreed, getTemper } from "../actions";
 import Paginate from "./Paginate";
 import './Cards.css'
 
@@ -55,8 +55,12 @@ export default function Cards(){
         setOrder(`Ordenado ${e.target.value}`)
     }
 
-
-
+    function handleByWeight(e){
+        e.preventDefault()
+        dispatch(filterByWeight(e.target.value))
+        setCurrentPage(1)
+        setOrder(`Ordenado ${e.target.value}`)
+    }
     //-------------------------------------Renderizado-------------------------------------
     // .sort(function(a,b){
     //     if(a.name<b.name) return -1;
@@ -83,7 +87,8 @@ export default function Cards(){
                 <option value="Z-A">Z-A</option>
             </select>
 
-            <select>
+            <select onChange={e=> handleByWeight>(e)}>
+                <option value="all">Todos los perros</option>
                 <option value="most">Más pesados</option>
                 <option value="less">Más livianos</option>
             </select>
@@ -104,7 +109,7 @@ export default function Cards(){
                 currentBreeds.length > 0 ? currentBreeds.map(b=>
                   <div className="cardContainer">
                      <Link key={b.id} to={`/details/${b.id}`}>
-                         <Card name={b.name} image={b.image} temper={b.temper} weight={b.weight}/>
+                         <Card name={b.name} image={b.image} temper={b.temper} weightMin={b.weightMin} weightMax={b.weightMax}/>
                      </Link>
                   </div>
                   ) : <h2>No hay nada</h2>

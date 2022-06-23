@@ -28,11 +28,12 @@ router.get('/', async(req, res, next)=>{
 
 router.post('/create', async (req, res, next)=>{
     try {
-        const {name, high, weight, life_span, image} = req.body;
+        const {name, high, weightMin, weightMax, life_span, image} = req.body;
         const newBreed = await Breed.create({
             name,
             high,
-            weight,
+            weightMin,
+            weightMax,
             life_span,
             image
         })

@@ -1,12 +1,12 @@
 const { Router } = require('express');
 const breedRoute = require('./breeds');
-const temperRoute = require('./tempers');
+const temperRoute = require('./temper');
 
 const router = Router();
 
 
 router.use('/breeds', breedRoute);
-router.use('/tempers', temperRoute);
+router.use('/temper', temperRoute);
 
 
 module.exports = router;

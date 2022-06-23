@@ -19,7 +19,9 @@ const filteredApiBreeds = async ()=>{
             id: b.id,
             name: b.name,
             high: b.height.metric,
-            weight: b.weight.metric,
+            // weight: b.weight.metric,
+            weightMin: b.weight.metric.split(/\s*-\s*/)[0],
+            weightMax: b.weight.metric.split(/\s*-\s*/)[1],
             image: b.image.url,
             life_span: b.life_span,
             temper: b.temperament

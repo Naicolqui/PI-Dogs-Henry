@@ -65,19 +65,19 @@ export default function rootReducer(state=initialState, action){
                 breed: filteredBreedByName
             };
         case GET_BY_WEIGHT:
-            const breedsWeight = state.savedBreed;
-            const filteredByWeight = action.payload === 'most' ? breedsWeight.sort(function(a,b){
+            const filteredByWeight = action.payload === 'less' ? state.savedBreed.sort(function(a,b){
                 const itemA = parseInt(a.weightMin);
                 const itemB = parseInt(b.weightMin);
                 return itemA - itemB;
-            }) : breedsWeight.sort(function(a,b){
+            })
+             : state.savedBreed.sort(function(a,b){
                 const itemA = parseInt(a.weightMin);
                 const itemB = parseInt(b.weightMin);
                 return itemB - itemA;
             })
             return {
                 ...state,
-                breed: action.payload === 'all' ? breedsWeight : filteredByWeight
+                breed: action.payload === 'all' ? state.savedBreed : filteredByWeight
             };
 
         default:

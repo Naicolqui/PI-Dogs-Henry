@@ -62,6 +62,10 @@
 
         if(longLife(data.life_span) === true) errors.life_span = "Nos gustaría que sean eternos pero debemos disfrutarlos mientras estén con nosotors";
         
+        if ((Object.keys(errors).length) === 0){
+            setisSubmit(true)
+          };
+        
         return errors;
     }
 

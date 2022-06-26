@@ -108,7 +108,7 @@ export default function Cards(){
                 {
                 currentBreeds.length > 0 ? currentBreeds.map(b=>
                   <div className="cardContainer">
-                     <Link key={b.id} to={`/details/${b.id}`}>
+                     <Link key={b.id}>
                          <Card name={b.name} image={b.image} temper={b.temper} weightMin={b.weightMin} weightMax={b.weightMax}/>
                      </Link>
                   </div>

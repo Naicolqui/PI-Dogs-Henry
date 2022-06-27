@@ -6,6 +6,8 @@ const FILTER_BY_TEMPER = "FILTER_BY_TEMPER";
 const GET_BY_ORIGIN = "GET_BY_ORIGIN"
 const GET_BY_NAME = "GET_BY_NAME"
 const GET_BY_WEIGHT = "GET_BY_WEIGHT";
+const GET_BY_ID = "GET_BY_ID"; 
+const GET_NAME = "GET_NAME";
 
 export const getBreed = ()=>{
     return async (dispatch)=>{
@@ -24,6 +26,30 @@ export const getTemper = ()=>{
             type: GET_TEMPER,
             payload: pedidoApiTemper.data
         })
+    }
+}
+
+export const getBreedById = (id)=>{
+    return async (dispatch) =>{
+        let pedidoApiId = await axios.get("http://localhost:3001/breeds/" + id);
+        dispatch({
+            type: GET_BY_ID,
+            payload: pedidoApiId.data
+        })
+    }
+}
+
+export const getName = (name)=>{
+    return async(dispatch)=>{
+        try{
+            var json = await axios.get("http://localhost:3001/breeds?name=" + name);
+            return dispatch({
+                type: GET_NAME,
+                payload: json.data
+            })
+        } catch(error){
+            console.log(error);
+        }
     }
 }
 

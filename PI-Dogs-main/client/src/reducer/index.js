@@ -4,11 +4,14 @@ const FILTER_BY_TEMPER = "FILTER_BY_TEMPER";
 const GET_BY_ORIGIN = "GET_BY_ORIGIN";
 const GET_BY_NAME = "GET_BY_NAME";
 const GET_BY_WEIGHT = "GET_BY_WEIGHT";
+const GET_BY_ID = "GET_BY_ID";
+const GET_NAME = "GET_NAME";
 
 let initialState = {
     breed: [],
     temper: [],
     savedBreed: [],
+    breedDetail: [],
     loader: true
 };
 
@@ -24,6 +27,16 @@ export default function rootReducer(state=initialState, action){
             return{
                 ...state,
                 temper: action.payload
+            };
+        case GET_BY_ID:
+            return{
+                ...state,
+                breedDetail: action.payload
+            };
+        case GET_NAME:
+            return {
+                ...state,
+                breed: action.payload
             };
         case FILTER_BY_TEMPER:
             const breeds = state.savedBreed;

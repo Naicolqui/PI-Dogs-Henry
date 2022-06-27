@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 import { filterBreedByTemper, filterByName, filterByOrigin, filterByWeight, getBreed, getTemper } from "../actions";
 import Paginate from "./Paginate";
 import './Cards.css'
+import SearchBar from "./SearchBar";
 
 export default function Cards(){
     let actualState = useSelector(state => state.breed);
@@ -71,6 +72,8 @@ export default function Cards(){
     return (
         <div>
 
+            <SearchBar/>
+
             <select onChange={e=> handleByTemper(e)}>
                 <option key={0} value='all'>Todos los temperamentos</option>
                 {
@@ -109,7 +112,7 @@ export default function Cards(){
                 currentBreeds.length > 0 ? currentBreeds.map(b=>
                   <div className="cardContainer">
                      <Link key={b.id}>
-                         <Card name={b.name} image={b.image} temper={b.temper} weightMin={b.weightMin} weightMax={b.weightMax}/>
+                         <Card name={b.name} image={b.image} temper={b.temper} weightMin={b.weightMin} weightMax={b.weightMax} id={b.id}/>
                      </Link>
                   </div>
                   ) : <h2>No hay nada</h2>

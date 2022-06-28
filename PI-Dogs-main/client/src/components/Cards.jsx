@@ -71,9 +71,6 @@ export default function Cards(){
 
     return (
         <div>
-
-            <SearchBar/>
-
             <select onChange={e=> handleByTemper(e)}>
                 <option key={0} value='all'>Todos los temperamentos</option>
                 {
@@ -102,6 +99,8 @@ export default function Cards(){
                 <option value="db">Perros de la Base de Datos</option>
             </select>
 
+            <SearchBar/>
+
             <div>
                 <Paginate 
                    breedsPerPage={breedsPerPage}
@@ -110,7 +109,7 @@ export default function Cards(){
                 />
                 {
                 currentBreeds.length > 0 ? currentBreeds.map(b=>
-                  <div className="cardContainer">
+                  <div className="cards">
                      <Link key={b.id}>
                          <Card name={b.name} image={b.image} temper={b.temper} weightMin={b.weightMin} weightMax={b.weightMax} id={b.id}/>
                      </Link>

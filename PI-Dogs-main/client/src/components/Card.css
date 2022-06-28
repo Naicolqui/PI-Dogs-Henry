@@ -1,22 +1,91 @@
-.card {
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
-    margin: 20px;
-    width: 300px;
-  }
 
-  .card img{
-    width: 200px;
-    height: inherit;
-  }
+h2{
+  font-family: 'Satisfy', cursive;
+  text-decoration: none;
+}
 
-  .card h4 {
-    display: flex;
-    flex: 1 1 auto;
-    flex-direction: column;
-    padding: 1rem;
-  }
+h3 {
+  font-family: 'Arimo', sans-serif;
+  text-decoration: none;
+}
+
+h4 {
+  font-family: 'Arimo', sans-serif;
+  text-decoration: none;
+}
+
+.cardContainer {
+  display: flex;
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  background: linear-gradient(121deg, #8C6E37 13%, #D9AA55 100%);
+  transition: all 500ms ease-in;
+  transition-delay: 1s;
+  margin: auto;
+  margin-top: 100px;
+}
+.cardContainer:hover {
+  width: 500px;
+  border-radius: 100px 10px 100px 100px;
+  transition: all 1s ease-out;
+}
+.cardContainer div * {
+  display: flex;
+  overflow: hidden;
+  text-overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  height: auto;
+  transition: all 450ms ease-in;
+  transition-delay: 1s;
+}
+.cardContainer:hover div *{
+  display: flex;
+  visibility: visible;
+  transition: all 1s ease-out;
+  transition-delay: 500ms;
+  width: 100%;
+  height: auto;
+}
+
+.cardContainer .imageContainer, .cardContainer .imageContainer img{
+  height: 200px;
+  width: 200px;
+  padding-right: 10px;
+  border-radius: 100%;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.cardContainer .imageContainer img{
+  height: 180px;
+  width: 180px;
+  transition: none;
+  display: float;
+  position: relative;
+  border: 10px solid white;
+  margin: 0 0 0 0; padding: 0 0 0 0;
+}
+.cardContainer .textContainer {
+  height: 200px;
+  width: 200px;
+  position: relative;
+  margin-right: 4%;
+}
+.cardContainer .textContainer .text{
+  max-width: 60%;
+  text-decoration: none;
+
+  max-height: 30px;
+  color: white;
+  /* position:absolute; */
+  bottom: 5px;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 13px;
+}
+.cardContainer .textContainer * {
+  max-width: 30px;
+  margin: 0 1px 0 1px;
+  border-radius: 25px;
+}

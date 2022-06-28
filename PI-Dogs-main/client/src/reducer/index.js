@@ -33,11 +33,11 @@ export default function rootReducer(state=initialState, action){
                 ...state,
                 breedDetail: action.payload
             };
-        case GET_NAME:
-            return {
-                ...state,
-                breed: action.payload
-            };
+        // case GET_NAME:
+        //     return {
+        //         ...state,
+        //         breed: action.payload
+        //     };
         case FILTER_BY_TEMPER:
             const breeds = state.savedBreed;
             const filteredBreed = action.payload ==='all' ? breeds : breeds.filter(b =>{

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { getName } from "../actions";
+import { getBreed } from "../actions";
 
 export default function SearchBar(){
 
     const dispatch = useDispatch();
 
-    const [name, setName] = useState("");
+    const [name, setName] = useState('');
 
     const handleChange = (e)=>{
         e.preventDefault()
@@ -16,18 +16,18 @@ export default function SearchBar(){
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        dispatch(getName(name))
+        dispatch(getBreed(name))
     }
 
     return(
         <div>
             <input
-            type="text"
+            type='text'
             onChange={(e) => handleChange(e)}
             placeholder="Buscar..."
-            />
+            onKeyPress={e=> e.key === 'Enter' && handleSubmit(e)}/>
             <button
-            type="submit"
+            type='submit'
             onClick={(e)=> handleSubmit(e)}
             >Buscar</button>
         </div>

@@ -10,7 +10,7 @@ export default function Paginate ({breedsPerPage, actualState, paginate}) {
 
     //Acá renderizo todo
     return (
-        <nav>
+        <nav className="paginateContainer">
             <ul className="paginate">
                 {
                     pageNum && pageNum.map(n => (

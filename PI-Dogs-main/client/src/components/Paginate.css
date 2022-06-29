@@ -1,14 +1,31 @@
-.paginate {
-    list-style: none;
+.paginateContainer {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    list-style: none !important;
     display: inline-block;
     padding: 0;
     margin: 0;
 }
 
 .paginate li {
+    border: 1px solid #535925;
+    background: transparent;
+    color: #535925;
+    transition-duration: 0.4s;
+    margin-left: 1px;
+    margin-right: 1px;
     display: inline;
+    cursor: pointer;
+    display: inline-block;
+    border-radius: 10%;
+}
+
+.paginate li:hover{
+    background-color: #D9AA55;
+    color: #535925;
 }
 
 .paginate li a {
-    margin: 10px;
+    margin: 5px;
 }

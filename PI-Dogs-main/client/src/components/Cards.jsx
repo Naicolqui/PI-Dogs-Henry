@@ -71,33 +71,35 @@ export default function Cards(){
 
     return (
         <div>
-            <select onChange={e=> handleByTemper(e)}>
-                <option key={0} value='all'>Todos los temperamentos</option>
-                {
-                    actualStateTemper?.map(t=>{
-                        return (
-                            <option key={t.id} value={t.name}>{t.name}</option>
-                        );
-                    })
-                }
-            </select>
+            <div className="filter">
+               <select className="select" onChange={e=> handleByTemper(e)}>
+                   <option key={0} value='all'>Todos los temperamentos</option>
+                   {
+                       actualStateTemper?.map(t=>{
+                           return (
+                               <option key={t.id} value={t.name}>{t.name}</option>
+                           );
+                       })
+                   }
+               </select>
+  
+               <select className="select" onChange={e=> handleByName(e)}>
+                   <option value="A-Z">A-Z</option>
+                   <option value="Z-A">Z-A</option>
+                   </select>
 
-            <select onChange={e=> handleByName(e)}>
-                <option value="A-Z">A-Z</option>
-                <option value="Z-A">Z-A</option>
-            </select>
+                   <select className="select" onChange={e=> handleByWeight>(e)}>
+                   <option value="all">Todos los perros</option>
+                   <option value="most">Más pesados</option>
+                   <option value="less">Más livianos</option>
+                   </select>
 
-            <select onChange={e=> handleByWeight>(e)}>
-                <option value="all">Todos los perros</option>
-                <option value="most">Más pesados</option>
-                <option value="less">Más livianos</option>
-            </select>
-
-            <select onChange={e=> handleByOrigin(e)}>
-                <option value="all">Todos los perros</option>
-                <option value="api">Perros de la API</option>
-                <option value="db">Perros de la Base de Datos</option>
-            </select>
+                   <select className="select" onChange={e=> handleByOrigin(e)}>
+                   <option value="all">Todos los perros</option>
+                   <option value="api">Perros de la API</option>
+                   <option value="db">Perros de la Base de Datos</option>
+                   </select>
+            </div>
 
             <SearchBar/>
 
@@ -107,15 +109,17 @@ export default function Cards(){
                    actualState={actualState.length}
                    paginate={paginate}
                 />
+                <div className="cards">
                 {
                 currentBreeds.length > 0 ? currentBreeds.map(b=>
-                  <div className="cards">
-                     <Link key={b.id}>
+                  <div className="cardsMaped">
+                     {/* <Link key={b.id}> */}
                          <Card name={b.name} image={b.image} temper={b.temper} weightMin={b.weightMin} weightMax={b.weightMax} id={b.id}/>
-                     </Link>
+                     {/* </Link> */}
                   </div>
                   ) : <h2>No hay nada</h2>
-                }
+                } 
+                </div>
             </div>
         </div>
     )

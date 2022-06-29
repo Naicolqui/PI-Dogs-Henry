@@ -2,16 +2,19 @@
 h2{
   font-family: 'Satisfy', cursive;
   text-decoration: none;
+  margin-bottom: 2%;
 }
 
 h3 {
   font-family: 'Arimo', sans-serif;
   text-decoration: none;
+  margin-bottom: 2%;
 }
 
 h4 {
   font-family: 'Arimo', sans-serif;
   text-decoration: none;
+  margin-bottom: 2%;
 }
 
 .cardContainer {
@@ -19,15 +22,17 @@ h4 {
   height: 200px;
   width: 200px;
   border-radius: 100px;
-  background: linear-gradient(121deg, #8C6E37 13%, #D9AA55 100%);
+  background: linear-gradient(121deg, #535925 13%, #838C3B 100%);
   transition: all 500ms ease-in;
   transition-delay: 1s;
   margin: auto;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .cardContainer:hover {
-  width: 500px;
-  border-radius: 100px 10px 100px 100px;
+  width: 90%;
+  margin: 3%;
+  margin-top: 5%;
+  border-radius: 100px 100px 100px 100px;
   transition: all 1s ease-out;
 }
 .cardContainer div * {
@@ -42,12 +47,52 @@ h4 {
 }
 .cardContainer:hover div *{
   display: flex;
-  visibility: visible;
+  /* visibility: visible; */
   transition: all 1s ease-out;
   transition-delay: 500ms;
-  width: 100%;
+  width: 80%;
   height: auto;
+  flex-direction: column;
+  /* justify-content: center; */
+  /* justify-items: center; */
+  /* align-content: left;
+  align-items: left; */
 }
+
+.cardContainer:hover .textContainer .linkBtn{
+  justify-self: center !important;
+  margin-bottom: 5%;
+}
+
+.cardContainer .textContainer h2{
+  text-align: center !important;
+  margin-top: 7%;
+  margin-bottom: 2%;
+}
+
+.cardContainer .textContainer .text {
+  margin-bottom: 0%;
+}
+
+.cardContainer .textContainer .textTemper{
+  color: white;
+  text-align: left;
+}
+
+.cardContainer:hover .textContainer .textTemper{
+  color: white;
+  text-align: left;
+  margin-top: 0%;
+  margin-bottom: 3%;
+  width: 450px;
+}
+
+/* .cardContainer .textContainer .textTemper2{
+  margin-top: 1%;
+  color: white;
+  text-align: left;
+} */
+
 
 .cardContainer .imageContainer, .cardContainer .imageContainer img{
   height: 200px;
@@ -61,31 +106,60 @@ h4 {
   height: 180px;
   width: 180px;
   transition: none;
-  display: float;
+  /* display: float; */
   position: relative;
   border: 10px solid white;
   margin: 0 0 0 0; padding: 0 0 0 0;
 }
-.cardContainer .textContainer {
-  height: 200px;
-  width: 200px;
+/* .cardContainer .textContainer {
   position: relative;
-  margin-right: 4%;
-}
-.cardContainer .textContainer .text{
-  max-width: 60%;
-  text-decoration: none;
+  margin-right: 30%;
 
-  max-height: 30px;
+  
+} */
+.cardContainer .textContainer .text{
+  /* max-width: 100%; */
+  text-decoration: none;
+  /* max-height: 30px; */
   color: white;
-  /* position:absolute; */
   bottom: 5px;
   display: flex;
-  justify-content: space-between;
-  border-radius: 13px;
+  /* justify-content: space-between; */
+  /* border-radius: 13px; */
+  text-align: left;
 }
-.cardContainer .textContainer * {
-  max-width: 30px;
-  margin: 0 1px 0 1px;
-  border-radius: 25px;
+
+.cardContainer .btn{
+  /* position: absolute; */
+  width: 130px !important;
+  height: 40px !important;
+  background: transparent;
+  color: #D9AA55;
+  border: 2px solid #D9AA55;
+  border-radius: 6px;
+  justify-self: center !important;
+
+  border: none;
+  color: white;
+  /* padding: 16px 32px; */
+  font-size: 1rem;
+  /* margin: 4px 2px; */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  text-align: center !important;
+  text-decoration: none !important;
+  display: inline-block;
+}
+
+.cardContainer .btn:hover {
+  background-color: #D9AA55;
+  color: #535925;
+  text-decoration: none;
+  text-align: center !important;
+}
+.textContainer .linkBtn{
+  text-decoration: none !important;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
 }

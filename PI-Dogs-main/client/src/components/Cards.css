@@ -1,5 +1,23 @@
-.cardContainer {
+.cards {
     display: flex;
-    align-content: center;
-    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* justify-content: space-around; */
+    justify-content: center;
+}
+
+.cards .cardsMaped {
+    width: 50%;
+    justify-self: center;
+}
+
+.filter .select{
+    height: 30px;
+    border-radius: 30px;
+    color: #838C3B;
+}
+
+.filter .select option{
+    color: white;
+    background-color: #838C3B;
 }

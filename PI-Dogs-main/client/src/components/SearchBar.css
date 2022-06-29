@@ -1,0 +1,37 @@
+.searchBarContainer{
+    margin: 2%;
+}
+
+.input{
+    height: 30px;
+    color: #535925;
+    border-radius: 10px;
+}
+
+.btn{
+    /* position: absolute; */
+    width: 130px !important;
+    height: 30px !important;
+    background-color: #535925;
+    color: white;
+    border: 2px solid #535925;
+    border-radius: 6px;
+    justify-self: center !important;
+    margin-left: 1%;
+  
+    border: none;
+    color: white;
+    font-size: 1rem;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    text-align: center !important;
+    text-decoration: none !important;
+    display: inline-block;
+  }
+  
+  .btn:hover {
+    background-color: #D9AA55;
+    color: #535925;
+    text-decoration: none;
+    text-align: center !important;
+  }

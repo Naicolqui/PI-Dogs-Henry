@@ -1,0 +1,33 @@
+.nav {
+    color: white;
+    background-color: #535925;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0%;
+    justify-content: space-between !important;
+}
+
+.nav img {
+    position: absolute;
+    width: 50px;
+    margin: 1%;
+}
+
+.nav ul li .link{
+    padding: 8px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav ul{
+    list-style: none;
+    display: inline-block;
+    margin-left: 40px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.nav ul li{
+    display: inline;
+    cursor: pointer;
+}

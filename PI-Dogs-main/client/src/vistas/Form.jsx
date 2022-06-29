@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { getTemper } from "../actions";
+import './Form.css'
 // import validation from "../functions/formValidation";
 
 export default function Form(){
@@ -144,63 +145,63 @@ export default function Form(){
     //------------------Renderizado--------------------
 
     return(
-        <div>
-            <form>
-                <div>
+        <div className="formContainer">
+            <form className="form">
+                <div className="container">
                     <label>Nombre de la raza</label>
                     <input name={'name'} value={breed.name}
                     onChange={(e) => handleChange(e)}></input>
                     {
-                        formError.name ? (<h4><small>{formError.name}</small></h4>) : false
+                        formError.name ? (<h4 className="error"><small>{formError.name}</small></h4>) : false
                     }
                 </div>
 
-                <div>
+                <div className="container">
                     <label>Imagen</label>
                     <input  name={'image'} value={breed.image}
                     onChange={(e) => handleChange(e)}></input>
                     {
-                        formError.image ? (<h4><small>{formError.image}</small></h4>) : false
+                        formError.image ? (<h4 className="error"><small>{formError.image}</small></h4>) : false
                     }
                 </div>
 
-                <div>
+                <div className="container">
                     <label>Peso mínimo</label>
                     <input  name={'weightMin'} value={breed.weightMin}
                     onChange={(e) => handleChange(e)}></input>
                     {
-                        formError.weightMin ? (<h4><small>{formError.weightMin}</small></h4>) : false
+                        formError.weightMin ? (<h4 className="error"><small>{formError.weightMin}</small></h4>) : false
                     }
                 </div>
 
-                <div>
+                <div className="container">
                     <label>Peso máximo</label>
                     <input name={'weightMax'} value={breed.weightMax}
                     onChange={(e) => handleChange(e)}></input>
                     {
-                        formError.weightMax ? (<h4><small>{formError.weightMax}</small></h4>) : false
+                        formError.weightMax ? (<h4 className="error"><small>{formError.weightMax}</small></h4>) : false
                     }
                 </div>
 
-                <div>
+                <div className="container">
                     <label>Altura aproximada</label>
                     <input name={'high'} value={breed.high}
                     onChange={(e) => handleChange(e)}></input>
                     {
-                        formError.high ? (<h4><small>{formError.high}</small></h4>) : false
+                        formError.high ? (<h4 className="error"><small>{formError.high}</small></h4>) : false
                     }
                 </div>
 
-                <div>
+                <div className="container">
                     <label>Rango de vida</label>
                     <input name={'life_span'} value={breed.life_span}
                     onChange={(e) => handleChange(e)}></input>
                     {
-                        formError.life_span ? (<h4><small>{formError.life_span}</small></h4>) : false
+                        formError.life_span ? (<h4 className="error"><small>{formError.life_span}</small></h4>) : false
                     }
                 </div>
 
-                <div>
+                <div className="container">
                     <label>Temperamento</label>
                     <select name={'temper'}
                       onChange={(e) => handleTemper(e)}>

@@ -7,14 +7,14 @@ const GET_BY_ORIGIN = "GET_BY_ORIGIN"
 const GET_BY_NAME = "GET_BY_NAME"
 const GET_BY_WEIGHT = "GET_BY_WEIGHT";
 const GET_BY_ID = "GET_BY_ID"; 
-const GET_NAME = "GET_NAME";
+// const GET_NAME = "GET_NAME";
 
 export const getBreed = (name)=>{
     return async (dispatch)=>{
         if(name){
             let pedidoNombre = await axios.get('http://localhost:3001/breeds?name=' + name)
             dispatch({
-                type: GET_NAME,
+                type: GET_BREED,
                 payload: pedidoNombre.data
             })
         }

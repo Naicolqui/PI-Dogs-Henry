@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import Card from "./Card";
 import {useDispatch, useSelector} from 'react-redux';
-import {Link} from 'react-router-dom';
+// import {Link} from 'react-router-dom';
 import { filterBreedByTemper, filterByName, filterByOrigin, filterByWeight, getBreed, getTemper } from "../actions";
 import Paginate from "./Paginate";
 import './Cards.css'
@@ -88,8 +88,8 @@ export default function Cards(){
                    <option value="Z-A">Z-A</option>
                    </select>
 
-                   <select className="select" onChange={e=> handleByWeight>(e)}>
-                   <option value="all">Todos los perros</option>
+                   <select className="select" onChange={e=> handleByWeight(e)}>
+                   {/* <option value="all">Todos los perros</option> */}
                    <option value="most">Más pesados</option>
                    <option value="less">Más livianos</option>
                    </select>

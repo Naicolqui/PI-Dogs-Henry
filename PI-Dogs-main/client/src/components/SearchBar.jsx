@@ -9,6 +9,7 @@ export default function SearchBar(){
 
     const [name, setName] = useState('');
 
+
     const handleChange = (e)=>{
         e.preventDefault()
         setName(e.target.value)
@@ -17,7 +18,8 @@ export default function SearchBar(){
 
     const handleSubmit = (e) =>{
         e.preventDefault()
-        dispatch(getBreed(name))
+        const breed = getBreed(name);
+        dispatch(breed)
     }
 
     return(
@@ -31,7 +33,7 @@ export default function SearchBar(){
             <button
             className="btn"
             type='submit'
-            onClick={(e)=> handleSubmit(e)}
+            onClick={(e) => handleSubmit(e)}
             >Buscar</button>
         </div>
     )

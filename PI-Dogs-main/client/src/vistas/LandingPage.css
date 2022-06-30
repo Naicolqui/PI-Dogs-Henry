@@ -1,0 +1,16 @@
+.containerLanding{
+    background-image: url('../images/fondoPerro.png');
+    height: 600px;
+    margin: 0;
+    padding: 0;
+}
+
+.containerLanding h1{
+    font-family: 'Satisfy', cursive;
+    margin: 0px;
+    padding: 20px;
+}
+
+.btnLanding{
+    margin-top: 50px;
+}

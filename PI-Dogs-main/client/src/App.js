@@ -5,6 +5,7 @@ import Home from './vistas/Home';
 import LandingPage from './vistas/LandingPage'
 import NavBar from './vistas/NavBar';
 import Detail from './vistas/Detail';
+import Footer from './vistas/Footer';
 // import SearchBar from './components/SearchBar';
 
 
@@ -21,6 +22,7 @@ function App() {
           <Route path='/details/:id' component={Detail}/>
         </Switch>
       </div>
+      <Footer/>
     </BrowserRouter>
   );
 }

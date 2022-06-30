@@ -70,7 +70,7 @@ export default function Cards(){
     // }) PARA EL FILTRO DE TEMPERAMENTOS
 
     return (
-        <div>
+        <div className="containter">
             <div className="filter">
                <select className="select" onChange={e=> handleByTemper(e)}>
                    <option key={0} value='all'>Todos los temperamentos</option>

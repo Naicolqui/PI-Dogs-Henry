@@ -4,6 +4,7 @@
     flex-wrap: wrap;
     /* justify-content: space-around; */
     justify-content: center;
+    padding-bottom: 50px;
 }
 
 .cards .cardsMaped {

@@ -2,6 +2,20 @@
     margin: 10px;
     display: flex;
     justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.formContainer .textTitle {
+    justify-self: center;
+}
+
+.formContainer .textTitle h2{
+    font-size: 3rem;
+}
+
+.formContainer .textTitle h3{
+    font-size: 0.8rem;
 }
 
 .container{
@@ -14,7 +28,8 @@
 
 .container input{
     justify-self: center;
-    width: 300px;
+    /* width: 300px; */
+    width: 50%;
     height: 20px;
     border-radius: 10px;
     border-style: hidden;
@@ -24,18 +39,27 @@
 
 .container select{
     justify-self: center;
-    width: 300px;
+    width: 50%;
     height: 20px;
     border-radius: 10px;
     border-style: hidden;
     cursor: pointer;
+    margin-top: 2%;
 }
 
 .container label{
     font-family: 'Arimo', sans-serif;
     font-size: 1.2rem;
+    text-align: left;
 }
 
 .error{
     color: red;
+    margin-top: 1px;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.btn {
+    margin: 5%;
 }

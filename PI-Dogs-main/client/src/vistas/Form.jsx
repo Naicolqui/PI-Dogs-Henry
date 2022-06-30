@@ -146,6 +146,11 @@ export default function Form(){
 
     return(
         <div className="formContainer">
+            <div className="textTitle">
+                <h2>Creá tu propia raza canina</h2>
+                <h3>Recordá que siempre es mejor adoptar que comprar, hay muchos pichichus que necesitan de nuestro amor y cariño</h3>
+            </div>
+            
             <form className="form">
                 <div className="container">
                     <label>Nombre de la raza</label>
@@ -178,9 +183,11 @@ export default function Form(){
                     <label>Peso máximo</label>
                     <input name={'weightMax'} value={breed.weightMax}
                     onChange={(e) => handleChange(e)}></input>
+                    <div className="errorContainer">
                     {
                         formError.weightMax ? (<h4 className="error"><small>{formError.weightMax}</small></h4>) : false
                     }
+                    </div>
                 </div>
 
                 <div className="container">
@@ -216,7 +223,7 @@ export default function Form(){
                 </div>
 
                 <div>
-                    <button type="submit" disabled={isSubmit} id="btn" onClick={(e) => handleSubmit(e)}> Crear raza </button>
+                    <button className="btn" type="submit" disabled={isSubmit} id="btn" onClick={(e) => handleSubmit(e)}> Crear raza </button>
                 </div>
 
             </form>

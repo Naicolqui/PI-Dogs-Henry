@@ -1,0 +1,37 @@
+.footer {
+    background-color: #838C3B;
+    display: flex;
+    justify-content: space-around;
+    justify-content: center;
+}
+
+.footer .container h2{
+    font-size: 3rem;
+    margin-top: 15%;
+}
+
+.footer .container h3{
+    margin: 2%;
+}
+
+.footer .container h3 img {
+    width: 50px;
+}
+
+.footer .container .soyHenry{
+    width: 300px;
+    margin-top: 10px;
+}
+
+.footer .container .soyNicole{
+    height: 200px;
+}
+
+.footer .container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 1%;
+}

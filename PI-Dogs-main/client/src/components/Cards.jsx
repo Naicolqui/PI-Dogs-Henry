@@ -9,7 +9,7 @@ import SearchBar from "./SearchBar";
 
 export default function Cards(){
     let actualState = useSelector(state => state.breed);
-    let actualStateTemper = useSelector(state => state.temper);
+    let actualStateTemper = useSelector(state => state.tempers);
     const dispatch = useDispatch();
 
     //---------------------Paginado---------------------
@@ -117,7 +117,7 @@ export default function Cards(){
                 currentBreeds.length > 0 ? currentBreeds.map(b=>
                   <div className="cardsMaped">
                      {/* <Link key={b.id}> */}
-                         <Card name={b.name} image={b.image} temper={b.temper} weightMin={b.weightMin} weightMax={b.weightMax} id={b.id}/>
+                         <Card name={b.name} image={b.image} tempers={b.tempers} weightMin={b.weightMin} weightMax={b.weightMax} id={b.id}/>
                      {/* </Link> */}
                   </div>
                   ) : 

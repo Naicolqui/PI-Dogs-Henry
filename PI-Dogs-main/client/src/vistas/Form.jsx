@@ -22,7 +22,7 @@ export default function Form(){
         weightMax:"",
         high:"",
         life_span:"",
-        temper:[]
+        tempers:[]
     });
 
     //Creo un estado para el error de formulario
@@ -130,7 +130,7 @@ export default function Form(){
             weightMax:"",
             high:"",
             life_span:"",
-            temper:[]
+            tempers:[]
         });
         alert("La raza ya fué creada")
     }
@@ -211,7 +211,7 @@ export default function Form(){
 
                 <div className="container">
                     <label>Temperamento</label>
-                    <select name={'temper'}
+                    <select name={'tempers'}
                       onChange={(e) => handleTemper(e)}>
                        {
                             actualStateTemper?.map(t=>{

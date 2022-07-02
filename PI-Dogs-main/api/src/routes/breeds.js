@@ -27,8 +27,10 @@ router.get('/', async(req, res, next)=>{
 });
 
 router.post('/create', async (req, res, next)=>{
+    const {name, high, weightMin, weightMax, life_span, image, tempers} = req.body;
+    if(!name || !high || !weightMin ||!weightMax){return res.status(400).json({msg: "Falta información"})}
+    if(typeof name !== "string" || typeof high !== "string" || typeof weightMax !== "string" || typeof weightMin !== "string" ){return res.status(400).json({msj: "Alguno de los datos no fue introducido correctamente"})}
     try {
-        const {name, high, weightMin, weightMax, life_span, image, temper} = req.body;
         const newBreed = await Breed.create({
             name,
             high,
@@ -36,12 +38,12 @@ router.post('/create', async (req, res, next)=>{
             weightMax,
             life_span,
             image,
-            temper
+            tempers
         })
 
         let temperDB = await Temper.findAll({
             where: {
-                name: temper
+                name: tempers,
             }
         })
 

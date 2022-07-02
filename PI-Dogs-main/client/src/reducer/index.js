@@ -11,7 +11,7 @@ import {GET_BREED, GET_TEMPER, FILTER_BY_TEMPER, GET_BY_ORIGIN, GET_BY_NAME, GET
 
 let initialState = {
     breed: [],
-    temper: [],
+    tempers: [],
     savedBreed: [],
     breedDetail: [],
     loader: true
@@ -28,7 +28,7 @@ export default function rootReducer(state=initialState, action){
         case GET_TEMPER:
             return{
                 ...state,
-                temper: action.payload
+                tempers: action.payload
             };
         case GET_BY_ID:
             return{
@@ -43,8 +43,8 @@ export default function rootReducer(state=initialState, action){
         case FILTER_BY_TEMPER:
             const breeds = state.savedBreed;
             const filteredBreed = action.payload ==='all' ? breeds : breeds.filter(b =>{
-                if(typeof b.temper === 'string'){
-                    return b.temper.includes(action.payload);
+                if(typeof b.tempers === 'string'){
+                    return b.tempers.includes(action.payload);
                 }
                 // if(Array.isArray(b.temper)){
                 //     let temperaments = b.temper.map(el=>el.name);

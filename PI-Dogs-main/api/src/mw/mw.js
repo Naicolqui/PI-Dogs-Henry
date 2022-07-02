@@ -24,7 +24,7 @@ const filteredApiBreeds = async ()=>{
             weightMax: b.weight.metric.split(/\s*-\s*/)[1],
             image: b.image.url,
             life_span: b.life_span,
-            temper: b.temperament
+            tempers: b.temperament
         };
     })
     // console.log("razas mapeadas", mapedBreeds);

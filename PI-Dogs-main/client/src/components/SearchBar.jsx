@@ -1,40 +1,26 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { getBreed } from "../actions";
-import './SearchBar.css';
+import { useState } from "react";
+import { getName } from "../actions";
+import { useDispatch } from 'react-redux';
 
 export default function SearchBar(){
+    const [search, setSearch] = useState('')
+    let dispatch = useDispatch()
 
-    const dispatch = useDispatch();
-
-    const [name, setName] = useState('');
-
-
-    const handleChange = (e)=>{
-        e.preventDefault()
-        setName(e.target.value)
-        console.log(name)
+    function onSubmit(e){
+        e.preventDefault();
+        dispatch(getName(search))
+        console.log(search)
     }
 
-    const handleSubmit = (e) =>{
+    function onInputChange(e){
         e.preventDefault()
-        const breed = getBreed(name);
-        dispatch(breed)
+        setSearch(e.target.value)
     }
 
-    return(
-        <div className="searchBarContainer">
-            <input
-            className="input"
-            type='text'
-            onChange={(e) => handleChange(e)}
-            placeholder="Buscar..."
-            onKeyPress={e=> e.key === 'Enter' && handleSubmit(e)}/>
-            <button
-            className="btn"
-            type='submit'
-            onClick={(e) => handleSubmit(e)}
-            >Buscar</button>
-        </div>
-    )
+    return <div>
+        <form onSubmit={onSubmit}>
+            <input type="text" onChange={onInputChange} value={search}/>
+            <input type="submit" value="Buscar"/>
+        </form>
+    </div>
 }

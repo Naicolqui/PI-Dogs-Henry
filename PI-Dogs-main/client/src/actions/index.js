@@ -1,23 +1,23 @@
 import axios from 'axios';
 
-const GET_BREED = "GET_BREED";
-const GET_TEMPER = "GET_TEMPER";
-const FILTER_BY_TEMPER = "FILTER_BY_TEMPER";
-const GET_BY_ORIGIN = "GET_BY_ORIGIN"
-const GET_BY_NAME = "GET_BY_NAME"
-const GET_BY_WEIGHT = "GET_BY_WEIGHT";
-const GET_BY_ID = "GET_BY_ID"; 
-// const GET_NAME = "GET_NAME";
+export const GET_BREED = "GET_BREED";
+export const GET_TEMPER = "GET_TEMPER";
+export const FILTER_BY_TEMPER = "FILTER_BY_TEMPER";
+export const GET_BY_ORIGIN = "GET_BY_ORIGIN"
+export const GET_BY_NAME = "GET_BY_NAME"
+export const GET_BY_WEIGHT = "GET_BY_WEIGHT";
+export const GET_BY_ID = "GET_BY_ID"; 
+export const GET_NAME = "GET_NAME";
 
 export const getBreed = (name)=>{
     return async (dispatch)=>{
-        if(name){
-            let pedidoNombre = await axios.get('http://localhost:3001/breeds?name=' + name)
-            dispatch({
-                type: GET_BREED,
-                payload: pedidoNombre.data
-            })
-        }
+        // if(name){
+        //     let pedidoNombre = await axios.get('http://localhost:3001/breeds?name=' + name)
+        //     dispatch({
+        //         type: GET_BREED,
+        //         payload: pedidoNombre.data
+        //     })
+        // }
         if (!name){
             let pedidoApi = await axios.get("http://localhost:3001/breeds");
             dispatch ({
@@ -47,6 +47,21 @@ export const getBreedById = (id)=>{
         })
     }
 }
+
+
+export function getName(name) {
+    return function (dispatch) {
+      axios.get('http://localhost:3001/breeds?name=' + name)
+        .then((res) => {
+          dispatch({
+            type: GET_NAME,
+            payload: res.data,
+          });
+        })
+        .catch((err) => console.log(err));
+    };
+  }
+
 
 // export const getName = (name)=>{
 //     return async function (dispatch){

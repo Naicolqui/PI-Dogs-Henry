@@ -28,16 +28,27 @@ router.get('/', async(req, res, next)=>{
 
 router.post('/create', async (req, res, next)=>{
     try {
-        const {name, high, weightMin, weightMax, life_span, image} = req.body;
+        const {name, high, weightMin, weightMax, life_span, image, temper} = req.body;
         const newBreed = await Breed.create({
             name,
             high,
             weightMin,
             weightMax,
             life_span,
-            image
+            image,
+            temper
         })
-        res.status(201).send(newBreed);
+
+        let temperDB = await Temper.findAll({
+            where: {
+                name: temper
+            }
+        })
+
+        await newBreed.addTempers(temperDB)
+        // console.log(newBreed)
+        // console.log(temperDB)
+        res.status(200).send("ok")
     } catch(error){
         next(error)
     }
@@ -61,16 +72,16 @@ router.get('/:id', async(req, res, next)=>{
 
 //---------------------------------Relación entre razas y temperamento --------------------------------------
 
-router.post('/:idBreed/temper/:idTemper', async (req, res, next)=>{
-    try{
-        const {idBreed, idTemper} = req.params;
-        const breed = await Breed.findByPk(idBreed);
-        await breed.addTemper(idTemper);
-        res.send(200);
-    } catch(error){
-        next(error);
-    }
-});
+// router.post('/:idBreed/temper/:idTemper', async (req, res, next)=>{
+//     try{
+//         const {idBreed, idTemper} = req.params;
+//         const breed = await Breed.findByPk(idBreed);
+//         await breed.addTemper(idTemper);
+//         res.send(200);
+//     } catch(error){
+//         next(error);
+//     }
+// });
 
 
 //Ruta de delete

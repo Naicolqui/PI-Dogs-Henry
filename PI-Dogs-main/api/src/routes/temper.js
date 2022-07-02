@@ -20,7 +20,10 @@ router.get('/', async(req, res, next)=>{
         })
     
         const allTempers = await Temper.findAll();
-        res.send(allTempers);
+
+
+        res.json(allTempers);
+        
     } catch(error){
         next(error);
     }

@@ -101,7 +101,10 @@ export default function Cards(){
                    </select>
             </div>
 
-            <SearchBar/>
+            <div>
+               <SearchBar/>                
+            </div>
+
 
             <div>
                 <Paginate 
@@ -117,7 +120,9 @@ export default function Cards(){
                          <Card name={b.name} image={b.image} temper={b.temper} weightMin={b.weightMin} weightMax={b.weightMax} id={b.id}/>
                      {/* </Link> */}
                   </div>
-                  ) : <h2>No hay nada</h2>
+                  ) : 
+                  <div>
+                  </div>
                 } 
                 </div>
             </div>

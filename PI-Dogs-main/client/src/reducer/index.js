@@ -1,10 +1,12 @@
-const GET_BREED = "GET_BREED";
-const GET_TEMPER = "GET_TEMPER";
-const FILTER_BY_TEMPER = "FILTER_BY_TEMPER";
-const GET_BY_ORIGIN = "GET_BY_ORIGIN";
-const GET_BY_NAME = "GET_BY_NAME";
-const GET_BY_WEIGHT = "GET_BY_WEIGHT";
-const GET_BY_ID = "GET_BY_ID";
+import {GET_BREED, GET_TEMPER, FILTER_BY_TEMPER, GET_BY_ORIGIN, GET_BY_NAME, GET_BY_WEIGHT, GET_BY_ID, GET_NAME} from '../actions'
+
+// const GET_BREED = "GET_BREED";
+// const GET_TEMPER = "GET_TEMPER";
+// const FILTER_BY_TEMPER = "FILTER_BY_TEMPER";
+// const GET_BY_ORIGIN = "GET_BY_ORIGIN";
+// const GET_BY_NAME = "GET_BY_NAME";
+// const GET_BY_WEIGHT = "GET_BY_WEIGHT";
+// const GET_BY_ID = "GET_BY_ID";
 // const GET_NAME = "GET_NAME";
 
 let initialState = {
@@ -33,11 +35,11 @@ export default function rootReducer(state=initialState, action){
                 ...state,
                 breedDetail: action.payload
             };
-        // case GET_NAME:
-        //     return {
-        //         ...state,
-        //         breed: action.payload
-        //     };
+        case GET_NAME:
+            return {
+                ...state,
+                savedBreed: action.payload
+            };
         case FILTER_BY_TEMPER:
             const breeds = state.savedBreed;
             const filteredBreed = action.payload ==='all' ? breeds : breeds.filter(b =>{

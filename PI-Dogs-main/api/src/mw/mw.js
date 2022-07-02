@@ -34,12 +34,12 @@ const filteredApiBreeds = async ()=>{
 //Traigo la info de la base de datos
 const DbBreeds = async()=>{
     try{
-        const db= Breed.findAll({
+        const db= await Breed.findAll({
                 include: {
                 model: Temper,
                 attributes: ['name'],
                 through: {
-                    attributes: [],
+                    attributes: []
                 },
             }
             });

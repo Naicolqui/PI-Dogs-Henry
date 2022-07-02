@@ -103,6 +103,8 @@ h4 {
   flex-shrink: 0;
   object-fit: cover;
 }
+
+
 .cardContainer .imageContainer img{
   height: 180px;
   width: 180px;

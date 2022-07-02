@@ -6,6 +6,7 @@ import { filterBreedByTemper, filterByName, filterByOrigin, filterByWeight, getB
 import Paginate from "./Paginate";
 import './Cards.css'
 import SearchBar from "./SearchBar";
+import Error from "./Error";
 
 export default function Cards(){
     let actualState = useSelector(state => state.breed);
@@ -18,6 +19,7 @@ export default function Cards(){
     const [order, setOrder] = useState('');
     const lastBreedIndex = currentPage * breedsPerPage;
     const firstBreedIndex = lastBreedIndex - breedsPerPage;
+    console.log("actualState", actualState)
     const currentBreeds = actualState.slice(firstBreedIndex, lastBreedIndex);
 
     const paginate = (pageNum) => {
@@ -28,10 +30,6 @@ export default function Cards(){
     //Llamo a las razas con el useEffect
     useEffect(()=>{
         dispatch(getBreed())
-    }, [dispatch]);
-
-    //Llamo a los temperamentos con un useEffect
-    useEffect(()=>{
         dispatch(getTemper())
     }, [dispatch]);
 
@@ -117,11 +115,12 @@ export default function Cards(){
                 currentBreeds.length > 0 ? currentBreeds.map(b=>
                   <div className="cardsMaped">
                      {/* <Link key={b.id}> */}
-                         <Card name={b.name} image={b.image} tempers={b.tempers} weightMin={b.weightMin} weightMax={b.weightMax} id={b.id}/>
+                         <Card key={b.id} name={b.name} image={b.image} tempers={b.tempers} weightMin={b.weightMin} weightMax={b.weightMax} id={b.id}/>
                      {/* </Link> */}
                   </div>
                   ) : 
                   <div>
+                    <Error/>
                   </div>
                 } 
                 </div>

@@ -9,23 +9,39 @@ export const GET_BY_WEIGHT = "GET_BY_WEIGHT";
 export const GET_BY_ID = "GET_BY_ID"; 
 export const GET_NAME = "GET_NAME";
 
-export const getBreed = (name)=>{
-    return async (dispatch)=>{
-        // if(name){
-        //     let pedidoNombre = await axios.get('http://localhost:3001/breeds?name=' + name)
-        //     dispatch({
-        //         type: GET_BREED,
-        //         payload: pedidoNombre.data
-        //     })
-        // }
-        if (!name){
-            let pedidoApi = await axios.get("http://localhost:3001/breeds");
-            dispatch ({
+// export const getBreed = (name)=>{
+//     return async (dispatch)=>{
+//         // if(name){
+//         //     let pedidoNombre = await axios.get('http://localhost:3001/breeds?name=' + name)
+//         //     dispatch({
+//         //         type: GET_BREED,
+//         //         payload: pedidoNombre.data
+//         //     })
+//         // }
+//         if (!name){
+//             let pedidoApi = await axios.get("http://localhost:3001/breeds");
+//             dispatch ({
+//                 type: GET_BREED,
+//                 payload: pedidoApi.data
+//             })
+//         }
+//     }
+// }
+
+export function getBreed(name) {
+    return async function (dispatch) {
+            // if (name) {
+            //     return axios.get('http://localhost:3001/breeds?name=' + name)
+            //         .then(res => dispatch({ type: GET_BREED, payload: res.data }))
+            //         .catch(err => dispatch({ type: GET_BREED, payload: err.data }))
+            // }
+            let json = await axios.get('http://localhost:3001/breeds', {})
+            return dispatch({
                 type: GET_BREED,
-                payload: pedidoApi.data
+                payload: json.data
             })
-        }
     }
+
 }
 
 export const getTemper = ()=>{

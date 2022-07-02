@@ -1,8 +1,8 @@
 const { Router } = require('express');
 const {Temper, Breed} = require ('../db');
-const axios = require('axios');
+// const axios = require('axios');
 const { filteredApiBreeds, DbBreeds} = require('../mw/mw');
-
+// const Tempers = require('../models/Temper');
 
 const router = Router();
 
@@ -10,12 +10,12 @@ const router = Router();
 //Ruta get para traer toda la info o por nombre segun query
 router.get('/', async(req, res, next)=>{
     try{
-        const {name} = req.query;
+        const name = req.query.name;
         const api = await filteredApiBreeds();
         const db = await DbBreeds();
         const allInfo = api.concat(db);
         if(name){
-            let breedExists = allInfo.find((b)=>b.name === name);
+            let breedExists = await allInfo.filter(b=> b.name.toLowerCase().includes(name.toLowerCase()));
             if (breedExists) res.json(breedExists);
         }
         if(!name){

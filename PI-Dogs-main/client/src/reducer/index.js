@@ -38,7 +38,7 @@ export default function rootReducer(state=initialState, action){
         case GET_NAME:
             return {
                 ...state,
-                savedBreed: action.payload
+                breed: action.payload
             };
         case FILTER_BY_TEMPER:
             const breeds = state.savedBreed;

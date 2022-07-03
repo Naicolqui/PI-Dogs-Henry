@@ -18,13 +18,14 @@ const filteredApiBreeds = async ()=>{
         return{
             id: b.id,
             name: b.name,
-            high: b.height.metric,
+            highMin: b.height.metric.split(/\s*-\s*/)[0],
+            highMax: b.height.metric.split(/\s*-\s*/)[1],
             // weight: b.weight.metric,
             weightMin: b.weight.metric.split(/\s*-\s*/)[0],
             weightMax: b.weight.metric.split(/\s*-\s*/)[1],
             image: b.image.url,
             life_span: b.life_span,
-            tempers: b.temperament
+            tempers: b.temperament ? b.temperament : 'No hay información sobre los temperamentos'
         };
     })
     // console.log("razas mapeadas", mapedBreeds);

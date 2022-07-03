@@ -7,20 +7,22 @@ import './Form.css'
 
 export default function Form(){
     //Me traigo los temperamentos para el map
-    let actualStateTemper = useSelector(state => state.temper);
+    let actualStateTemper = useSelector(state => state.tempers);
 
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(getTemper())
     }, [dispatch])
+
     //Inicializo mi estado
     const [breed, setBreed] = useState({
         name:"",
         image:"",
         weightMin:"",
         weightMax:"",
-        high:"",
+        highMin:"",
+        highMax: "",
         life_span:"",
         tempers:[]
     });
@@ -59,13 +61,14 @@ export default function Form(){
         return false;
     }
 
+
     function validLife(str){
-        if(typeof str !== "string") return true;
+        if(str.length < 1 || typeof str !== "string") return true;
         return false;
     }
 
     function longLife(str){
-        if(str.length < 1 || str.length > 5) return true;
+        if(str.length > 5) return true;
         return false;
     }
 
@@ -76,8 +79,6 @@ export default function Form(){
         //Valido los campos obligatorios
 
         if(exists(data.name) === true) errors.name = "La raza necesita un nombre";
-
-        if(exists(data.high) === true) errors.high = "La raza necesita un nombre";
 
         if(exists(data.weightMin) === true) errors.weightMin = "La raza necesita un nombre";
 
@@ -91,12 +92,20 @@ export default function Form(){
 
         if(validWeight(data.weightMin) === true) errors.weightMin = "El peso ingresado no es válido";
 
-        if(validHigh(data.high) === true) errors.high = "La altura ingresada no es válida";
+        if(validHigh(data.highMin) === true) errors.highMin = "La altura ingresada no es válida";
+
+        if(validHigh(data.highMax) === true) errors.highMax = "La altura ingresada no es válida";
+
+        if(parseInt(data.highMin)>parseInt(data.highMax)) errors.highMin = "La altura mínima no puede ser mayor que la altura máxima"
+        
+        if(parseInt(data.highMin)>parseInt(data.highMax)) errors.highMax = "La altura mínima no puede ser mayor que la altura máxima"
 
         if(validLife(data.life_span) === true) errors.life_span = "La esperanza de vida ingresada no es válida";
-
+        
         if(longLife(data.life_span) === true) errors.life_span = "Nos gustaría que sean eternos pero debemos disfrutarlos mientras estén con nosotors";
         
+        // console.log("errors",errors)
+
         if ((Object.keys(errors).length) === 0){
             setisSubmit(false)
           };
@@ -110,11 +119,11 @@ export default function Form(){
         setBreed({
             ...breed,
             [e.target.name] : e.target.value
-
-            
         });
 
         setFormError(validation(breed));
+
+        console.log("isSubmit", isSubmit)
     }
 
     let handleSubmit = async (e) =>{
@@ -132,14 +141,17 @@ export default function Form(){
             life_span:"",
             tempers:[]
         });
+        console.log(breed)
         alert("La raza ya fué creada")
     }
 
     let handleTemper = (e) =>{
         setBreed({
             ...breed,
-            temper: [...new Set([...breed.temper, e.target.value])]
+            tempers: [...new Set([...breed.tempers, e.target.value])]
         })
+
+        console.log("Handle temperamentos:", breed.tempers )
     }
 
 
@@ -172,7 +184,7 @@ export default function Form(){
                 </div>
 
                 <div className="container">
-                    <label>Peso mínimo</label>
+                    <label>Peso mínimo <small>(Por favor colocá solo el número)</small></label>
                     <input  name={'weightMin'} value={breed.weightMin}
                     onChange={(e) => handleChange(e)}></input>
                     {
@@ -181,7 +193,7 @@ export default function Form(){
                 </div>
 
                 <div className="container">
-                    <label>Peso máximo</label>
+                    <label>Peso máximo <small>(Por favor colocá solo el número)</small></label>
                     <input name={'weightMax'} value={breed.weightMax}
                     onChange={(e) => handleChange(e)}></input>
                     <div className="errorContainer">
@@ -192,11 +204,20 @@ export default function Form(){
                 </div>
 
                 <div className="container">
-                    <label>Altura aproximada</label>
-                    <input name={'high'} value={breed.high}
+                    <label>Altura mínima <small>(Por favor colocá solo el número)</small></label>
+                    <input name={'highMin'} value={breed.highMin}
                     onChange={(e) => handleChange(e)}></input>
                     {
-                        formError.high ? (<h4 className="error"><small>{formError.high}</small></h4>) : false
+                        formError.highMin ? (<h4 className="error"><small>{formError.highMin}</small></h4>) : false
+                    }
+                </div>
+
+                <div className="container">
+                    <label>Altura máxima <small>(Por favor colocá solo el número)</small></label>
+                    <input name={'highMax'} value={breed.highMax}
+                    onChange={(e) => handleChange(e)}></input>
+                    {
+                        formError.highMax ? (<h4 className="error"><small>{formError.highMax}</small></h4>) : false
                     }
                 </div>
 

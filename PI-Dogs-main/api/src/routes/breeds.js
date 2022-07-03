@@ -16,10 +16,11 @@ router.get('/', async(req, res, next)=>{
         const allInfo = api.concat(db);
         if(name){
             let breedExists = await allInfo.filter(b=> b.name.toLowerCase().includes(name.toLowerCase()));
-            if (breedExists) res.json(breedExists);
+            if (breedExists.length>0) res.json(breedExists);
+            if(breedExists.length<1) res.send({msg: 'Esta raza no se encuentra en nuestra base de datos'})
         }
         if(!name){
-            res.json(allInfo);
+            allInfo.length ? res.json(allInfo) : res.send({msg: 'No se recibió información'})
         }
     } catch(error){
         next(error);
@@ -27,18 +28,20 @@ router.get('/', async(req, res, next)=>{
 });
 
 router.post('/create', async (req, res, next)=>{
-    const {name, high, weightMin, weightMax, life_span, image, tempers} = req.body;
-    if(!name || !high || !weightMin ||!weightMax){return res.status(400).json({msg: "Falta información"})}
-    if(typeof name !== "string" || typeof high !== "string" || typeof weightMax !== "string" || typeof weightMin !== "string" ){return res.status(400).json({msj: "Alguno de los datos no fue introducido correctamente"})}
+    const {name, highMin, highMax, weightMin, weightMax, life_span, image, tempers} = req.body;
+    if(!name || !highMin || !highMax || !weightMin ||!weightMax){return res.status(400).json({msg: "Falta información"})}
+    if(typeof name !== "string" || typeof highMin !== "string" || typeof highMax !== "string" || typeof weightMax !== "string" || typeof weightMin !== "string" ){return res.status(400).json({msj: "Alguno de los datos no fue introducido correctamente"})}
+    if(parseInt(highMin)>parseInt(highMax)){return res.status(400).json({msg:'La autra mínima no puede ser mayor a la máxima'})}
+    if(parseInt(weightMin)>parseInt(weightMax)){return res.status(400).json({msg:'El peso mínimo no puede ser mayor al peso máximo'})}
     try {
         const newBreed = await Breed.create({
             name,
-            high,
+            highMin,
+            highMax,
             weightMin,
             weightMax,
             life_span,
-            image,
-            tempers
+            image
         })
 
         let temperDB = await Temper.findAll({
@@ -48,9 +51,11 @@ router.post('/create', async (req, res, next)=>{
         })
 
         await newBreed.addTempers(temperDB)
+
+        console.log(newBreed.tempers)
         // console.log(newBreed)
         // console.log(temperDB)
-        res.status(200).send("ok")
+        res.status(200).send("La raza fue creada correctamente")
     } catch(error){
         next(error)
     }

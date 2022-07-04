@@ -7,11 +7,36 @@
 
 .containerLanding h1{
     font-family: 'Satisfy', cursive;
+    color: #535925;
     margin: 0px;
     padding: 20px;
 }
 
 .btnLanding{
-    margin-top: 50px;
-    
+  margin-top: 50px;
+  width: 130px;
+  height: 30px;
+  background: #535925;
+  color: #D9AA55;
+  border: 2px solid #D9AA55;
+  border-radius: 6px;
+  justify-self: center;
+  justify-content: center;
+
+  border: none;
+  color: white;
+  /* padding: 16px 32px; */
+  font-size: 1rem;
+  /* margin: 4px 2px; */
+  transition-duration: 0.4s;
+  cursor: pointer;
+  text-align: center;
+  /* text-decoration: none !important; */
+  display: inline-block;
+}
+
+.btnLanding:hover{
+    background-color: #D9AA55;
+    color: #535925;
+    text-decoration: none;
 }

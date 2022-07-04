@@ -19,39 +19,40 @@ export default function Detail(){
 
     return (
         <div>
-                    {
+        {
             actualBreed.length > 0 ?
             <div className="fullContainer">
-            <div className="headerContainer">
                 <h2 className="title">Raza: {actualBreed[0]?.name}</h2>
-                <img className="imageBreed" src={actualBreed[0]?.image} alt="not found"/>
+                <div className="contentContainer">
+                    <div className="headerContainer">
+                        <img className="imageBreed" src={actualBreed[0]?.image} alt="not found"/>
+                    </div>
+                    <div className="detailContainer">
+                         <h4 className="descriptionText">Temperaments:</h4>
+                            <ul className="allTempers">
+                            {actualBreed[0].CreatedInDB ?
+                            actualBreed[0].tempers.map(e => {
+                                return <li key={e.name}><label>{e.name}</label></li>
+                            }) :
+                            actualBreed[0].tempers ?
+                            actualBreed[0].tempers.split(', ').map(e => {
+                                return <li key={e}><label>{e}</label></li>
+                            }) :
+                            'Esta raza no posee temperamentos'
+                            }
+                            </ul>
+                        <h4 className="descriptionText">Weight:</h4>
+                        <h5>Between {actualBreed[0]?.weightMin}kg and {actualBreed[0].weightMax}kg</h5>
+                        <h4 className="descriptionText">Height:</h4>
+                        <h5>Between {actualBreed[0]?.highMin}cm and {actualBreed[0]?.highMax}cm</h5>
+                        <h4 className="descriptionText">Life rage:</h4>
+                        <h5>Between {actualBreed[0]?.life_span}</h5>
+                    </div>
+                </div>
+            </div> :
+            <div>
+                <LoadingDetail/>
             </div>
-            <div className="detailContainer">
-            <h4 className="descriptionText">Temperaments:</h4>
-                                    <ul className="allTempers">
-                                        {actualBreed[0].CreatedInDB ?
-                                            actualBreed[0].tempers.map(e => {
-                                                return <li key={e.name}><label>{e.name}</label></li>
-                                            }) :
-                                            actualBreed[0].tempers ?
-                                                actualBreed[0].tempers.split(', ').map(e => {
-                                                    return <li key={e}><label>{e}</label></li>
-                                                }) :
-                                                'Esta raza no posee temperamentos'
-                                        }
-
-                                    </ul>
-                <h4 className="descriptionText">Weight:</h4>
-                <h5>Between {actualBreed[0]?.weightMin}kg and {actualBreed[0].weightMax}kg</h5>
-                <h4 className="descriptionText">Height:</h4>
-                <h5>Between {actualBreed[0]?.highMin}cm and {actualBreed[0]?.highMax}cm</h5>
-                <h4 className="descriptionText">Life rage:</h4>
-                <h5>Between {actualBreed[0]?.life_span}</h5>
-            </div>
-        </div> :
-        <div>
-            <LoadingDetail/>
-        </div>
 
         }
         </div>

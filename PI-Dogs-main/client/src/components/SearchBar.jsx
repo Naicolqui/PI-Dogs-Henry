@@ -15,6 +15,9 @@ export default function SearchBar(){
         dispatch(getName(search))
         console.log(getName(search))
         console.log(search)
+        if(!search){
+            return alert('Debe ingresar nombre')
+        }
     }
 
     function onInputChange(e){
@@ -25,10 +28,25 @@ export default function SearchBar(){
 
     return(
     <div>
-        <form onSubmit={onSubmit}>
-            <input type="text" onChange={onInputChange} value={search}/>
+        {/* <form onSubmit={onSubmit}>
+            <input type="text" onChange={onInputChange} value={search} onKeyPress={e=> e.key === 'Enter' && handleSubmit(e)}/>
             <input type="submit" value="Buscar"/>
-        </form>
+        </form> */}
+        <input
+            type='text' 
+            placeholder='Busca tu raza favorita'
+            onChange={e => onInputChange(e)}
+            value={search}
+            className='inputSearch'
+            onKeyPress={e=> e.key === 'Enter' && onSubmit(e)}
+        />
+        <button
+        type='submit'
+        onClick={e=> onSubmit(e)}
+        className='btnSearch'
+        >
+            <strong>Buscar!</strong>
+        </button>
     </div>
     )
 }

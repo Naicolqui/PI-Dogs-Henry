@@ -2,13 +2,13 @@
     margin: 2%;
 }
 
-.input{
+.inputSearch{
     height: 30px;
     color: #535925;
     border-radius: 10px;
 }
 
-.btn{
+.btnSearch{
   background-color: #535925;
   color: white;
   border: 2px solid #535925;
@@ -50,7 +50,7 @@
     display: inline-block; */
   }
   
-  .btn:hover {
+  .btnSearch:hover {
     background-color: #D9AA55;
     color: #535925;
     text-decoration: none;

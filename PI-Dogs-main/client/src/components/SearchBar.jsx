@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getName } from "../actions";
 import { useDispatch } from 'react-redux';
+import './SearchBar.css';
 
 export default function SearchBar(){
     const [search, setSearch] = useState('')
@@ -12,18 +13,22 @@ export default function SearchBar(){
 
     function onSubmit(e){
         e.preventDefault();
-        dispatch(getName(search))
-        console.log(getName(search))
-        console.log(search)
+        const searchedName = getName(search)
+        console.log("getName", getName(search))
+        // console.log(search)
         if(!search){
             return alert('Debe ingresar nombre')
         }
+        if(searchedName.length === 0){
+            return alert('El perro solicitado no se encuentra en nuestra base de datos')
+        }
+        dispatch(searchedName)
     }
 
     function onInputChange(e){
         e.preventDefault()
         setSearch(e.target.value)
-        console.log(e.target.value)
+        // console.log(e.target.value)
     }
 
     return(

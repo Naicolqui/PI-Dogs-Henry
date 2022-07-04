@@ -6,6 +6,8 @@
     height: 30px;
     color: #535925;
     border-radius: 10px;
+    border-style: none;
+    border-color: transparent;
 }
 
 .btnSearch{

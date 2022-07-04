@@ -19,7 +19,7 @@ export default function Cards(){
     const [order, setOrder] = useState('');
     const lastBreedIndex = currentPage * breedsPerPage;
     const firstBreedIndex = lastBreedIndex - breedsPerPage;
-    console.log("actualState", actualState)
+    // console.log("actualState", actualState)
     const currentBreeds = actualState.slice(firstBreedIndex, lastBreedIndex);
 
     const paginate = (pageNum) => {

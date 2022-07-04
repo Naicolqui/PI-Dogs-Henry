@@ -24,10 +24,23 @@ export default function Detail(){
             <div><h2>Raza: {actualBreed[0]?.name}</h2></div>
             <img src={actualBreed[0]?.image} alt="not found"/>
             <div>
-                <h4>Temperamento: {actualBreed[0]?.tempers}</h4>
-                <h4>Peso: {actualBreed[0]?.weightMin} - {actualBreed[0].weightMax}</h4>
-                <h4>Altura: {actualBreed[0]?.high}</h4>
-                <h4>Esperanza de vida: {actualBreed[0]?.life_span}</h4>
+            <h4 className="caracts">Temperamentos:</h4>
+                                    <ul className="allTemps">
+                                        {actualBreed[0].CreatedInDB ?
+                                            actualBreed[0].tempers.map(e => {
+                                                return <li key={e.name}><label>{e.name}</label></li>
+                                            }) :
+                                            actualBreed[0].tempers ?
+                                                actualBreed[0].tempers.split(', ').map(e => {
+                                                    return <li key={e}><label>{e}</label></li>
+                                                }) :
+                                                'Esta raza no posee temperamentos'
+                                        }
+
+                                    </ul>
+                <h4>Peso: Entre los {actualBreed[0]?.weightMin}kg y los {actualBreed[0].weightMax}kg</h4>
+                <h4>Altura: Entre los {actualBreed[0]?.highMin}cm y los {actualBreed[0]?.highMax}cm</h4>
+                <h4>Esperanza de vida: {actualBreed[0]?.life_span} años</h4>
             </div>
         </div> :
         <div>

@@ -22,7 +22,7 @@ export default function Card({id, name, image, tempers, weightMin, weightMax, Cr
         }(tempers)}</h4>
                 <h4 className='text'>Peso: <br/> desde los {weightMin} hasta los {weightMax}kg</h4>
 
-                <Link to={'details/' + id } className='linkBtn'><button className='btn'>Más información</button></Link>
+                <Link to={'details/' + id } className='linkBtn'><button className='btnInfo'>Más información</button></Link>
             </div>
         </div>
     );

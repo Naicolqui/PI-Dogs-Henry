@@ -39,7 +39,7 @@ h4 {
   display: flex;
   overflow: hidden;
   text-overflow: hidden;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   width: 0;
   height: auto;
   transition: all 450ms ease-in;
@@ -52,22 +52,23 @@ h4 {
   transition-delay: 500ms;
   width: 80%;
   height: auto;
-  flex-direction: column;
+  /* flex-direction: column; */
   /* justify-content: center; */
   /* justify-items: center; */
   /* align-content: left;
   align-items: left; */
 }
 
-.cardContainer:hover .textContainer .linkBtn{
+/* .cardContainer:hover .textContainer .linkBtn{
   justify-self: center !important;
   margin-bottom: 5%;
-}
+} */
 
 .cardContainer .textContainer h2{
   text-align: center !important;
-  margin-top: 7%;
+  margin-top: 2%;
   margin-bottom: 2%;
+  align-self: center;
 }
 
 .cardContainer .textContainer .text {
@@ -85,7 +86,7 @@ h4 {
   text-align: left;
   margin-top: 0%;
   margin-bottom: 3%;
-  width: 450px;
+  width: 90%;
 }
 
 /* .cardContainer .textContainer .textTemper2{
@@ -121,7 +122,7 @@ h4 {
   
 } */
 .cardContainer .textContainer .text{
-  /* max-width: 100%; */
+  max-width: 100%;
   text-decoration: none;
   /* max-height: 30px; */
   color: white;
@@ -132,15 +133,27 @@ h4 {
   text-align: left;
 }
 
-.cardContainer .btn{
-  /* position: absolute; */
-  width: 130px !important;
-  height: 40px !important;
+/*----------------------Hover de boton en card sin hover----------------------*/
+.cardContainer .btnInfo{
+  width: 130px;
+  height: 30px;
+  background: transparent;
+  color: #D9AA55;
+  border: 2px solid #D9AA55;
+  text-align: center;
+}
+/*-----------------------------Hover de boton en card con hover--------------*/
+
+.cardContainer:hover .btnInfo{
+  position: absolute;
+  width: 130px;
+  height: 30px;
   background: transparent;
   color: #D9AA55;
   border: 2px solid #D9AA55;
   border-radius: 6px;
-  justify-self: center !important;
+  justify-self: center;
+  justify-content: center;
 
   border: none;
   color: white;
@@ -149,20 +162,18 @@ h4 {
   /* margin: 4px 2px; */
   transition-duration: 0.4s;
   cursor: pointer;
-  text-align: center !important;
-  text-decoration: none !important;
+  text-align: center;
+  /* text-decoration: none !important; */
   display: inline-block;
 }
 
-.cardContainer .btn:hover {
+.cardContainer:hover .btnInfo:hover {
   background-color: #D9AA55;
   color: #535925;
   text-decoration: none;
-  text-align: center !important;
+  /* text-align: center !important; */
 }
+
 .textContainer .linkBtn{
   text-decoration: none !important;
-  display: flex;
-  justify-content: center;
-  justify-items: center;
 }

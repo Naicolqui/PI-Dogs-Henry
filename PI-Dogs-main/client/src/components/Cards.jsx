@@ -6,7 +6,7 @@ import { filterBreedByTemper, filterByName, filterByOrigin, filterByWeight, getB
 import Paginate from "./Paginate";
 import './Cards.css'
 import SearchBar from "./SearchBar";
-import Error from "./Error";
+import LoadingAll from "./LoadingAll";
 
 export default function Cards(){
     let actualState = useSelector(state => state.breed);
@@ -120,7 +120,7 @@ export default function Cards(){
                   </div>
                   ) : 
                   <div>
-                    <Error/>
+                    <LoadingAll/>
                   </div>
                 } 
                 </div>

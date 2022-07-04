@@ -1,0 +1,38 @@
+.fullContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.headerContainer{
+    margin: 5%;
+}
+
+.headerContainer h2{
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+.detailContainer{
+    margin: 5%;
+    margin-top: 5%;
+}
+
+.detailContainer h4{
+    margin-bottom: 3px;
+}
+
+.detailContainer h5{
+    margin-top: 3px;
+    font-family: 'Arimo', sans-serif;
+}
+
+.allTempers{
+  font-family: 'Arimo', sans-serif;
+  font-size: 0.9rem;
+}
+
+.imageBreed{
+    height: 300px !important;
+    box-shadow: 2px 2px 5px #999;
+}

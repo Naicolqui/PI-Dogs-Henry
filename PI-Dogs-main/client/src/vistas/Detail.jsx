@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getBreedById } from "../actions";
-import Loading from "../components/Loading";
+import LoadingDetail from "../components/LoadingDetail";
+import './Detail.css'
 
 export default function Detail(){
 
@@ -20,12 +21,14 @@ export default function Detail(){
         <div>
                     {
             actualBreed.length > 0 ?
-            <div>
-            <div><h2>Raza: {actualBreed[0]?.name}</h2></div>
-            <img src={actualBreed[0]?.image} alt="not found"/>
-            <div>
-            <h4 className="caracts">Temperamentos:</h4>
-                                    <ul className="allTemps">
+            <div className="fullContainer">
+            <div className="headerContainer">
+                <h2 className="title">Raza: {actualBreed[0]?.name}</h2>
+                <img className="imageBreed" src={actualBreed[0]?.image} alt="not found"/>
+            </div>
+            <div className="detailContainer">
+            <h4 className="descriptionText">Temperaments:</h4>
+                                    <ul className="allTempers">
                                         {actualBreed[0].CreatedInDB ?
                                             actualBreed[0].tempers.map(e => {
                                                 return <li key={e.name}><label>{e.name}</label></li>
@@ -38,13 +41,16 @@ export default function Detail(){
                                         }
 
                                     </ul>
-                <h4>Peso: Entre los {actualBreed[0]?.weightMin}kg y los {actualBreed[0].weightMax}kg</h4>
-                <h4>Altura: Entre los {actualBreed[0]?.highMin}cm y los {actualBreed[0]?.highMax}cm</h4>
-                <h4>Esperanza de vida: {actualBreed[0]?.life_span} años</h4>
+                <h4 className="descriptionText">Weight:</h4>
+                <h5>Between {actualBreed[0]?.weightMin}kg and {actualBreed[0].weightMax}kg</h5>
+                <h4 className="descriptionText">Height:</h4>
+                <h5>Between {actualBreed[0]?.highMin}cm and {actualBreed[0]?.highMax}cm</h5>
+                <h4 className="descriptionText">Life rage:</h4>
+                <h5>Between {actualBreed[0]?.life_span}</h5>
             </div>
         </div> :
         <div>
-            <Loading/>
+            <LoadingDetail/>
         </div>
 
         }

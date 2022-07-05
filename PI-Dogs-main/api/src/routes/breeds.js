@@ -17,7 +17,9 @@ router.get('/', async(req, res, next)=>{
         if(name){
             let breedExists = await allInfo.filter(b=> b.name.toLowerCase().includes(name.toLowerCase()));
             if (breedExists.length>0) res.json(breedExists);
-            if(breedExists.length<1) res.send({msg: 'Esta raza no se encuentra en nuestra base de datos'})
+            if(breedExists.length<1) res.send([{
+                name: 'Perdon, la raza no esta en nuestra base de datos.', id: '', temperaments: 'Puede crearla en nuestro "Creador de Perros"', image: 'https://thumbs.dreamstime.com/b/perro-con-una-lupa-75331469.jpg'
+            }]);
         }
         if(!name){
             allInfo.length ? res.json(allInfo) : res.send({msg: 'No se recibió información'})

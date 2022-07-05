@@ -93,19 +93,5 @@ router.get('/:id', async(req, res, next)=>{
 // });
 
 
-//Ruta de delete
-// router.delete("/:id", async function (req, res) {
-//     const { id } = req.params;
-//     try {
-//       if (id) {
-//         await Race.destroy({
-//           where: { id: id },
-//         });
-//         res.send({ msg: "Dog deleted" });
-//       }
-//     } catch (error) {
-//       console.log(error);
-//     }
-//   });
 
 module.exports = router;

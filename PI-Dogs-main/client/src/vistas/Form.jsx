@@ -130,7 +130,7 @@ export default function Form(){
         e.preventDefault()
         setFormError(validation(breed))
 
-        await axios.post("http://localhost:3001/breeds/create", breed)
+        await axios.post("/breeds/create", breed)
         console.log(breed);
         setBreed({
             name:"",

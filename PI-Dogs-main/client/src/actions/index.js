@@ -35,7 +35,7 @@ export function getBreed(name) {
             //         .then(res => dispatch({ type: GET_BREED, payload: res.data }))
             //         .catch(err => dispatch({ type: GET_BREED, payload: err.data }))
             // }
-            let json = await axios.get('http://localhost:3001/breeds', {})
+            let json = await axios.get('/breeds', {})
             return dispatch({
                 type: GET_BREED,
                 payload: json.data
@@ -46,7 +46,7 @@ export function getBreed(name) {
 
 export const getTemper = ()=>{
     return async (dispatch)=>{
-        let pedidoApiTemper = await axios.get("http://localhost:3001/temper");
+        let pedidoApiTemper = await axios.get("/temper");
         dispatch({
             type: GET_TEMPER,
             payload: pedidoApiTemper.data
@@ -56,7 +56,7 @@ export const getTemper = ()=>{
 
 export const getBreedById = (id)=>{
     return async (dispatch) =>{
-        let pedidoApiId = await axios.get("http://localhost:3001/breeds/" + id);
+        let pedidoApiId = await axios.get("/breeds/" + id);
         dispatch({
             type: GET_BY_ID,
             payload: pedidoApiId.data
@@ -67,7 +67,7 @@ export const getBreedById = (id)=>{
 
 export function getName(name) {
     return function (dispatch) {
-      axios.get('http://localhost:3001/breeds?name=' + name)
+      axios.get('/breeds?name=' + name)
         .then((res) => {
           dispatch({
             type: GET_NAME,

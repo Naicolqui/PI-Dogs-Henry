@@ -16,12 +16,6 @@ export default function SearchBar(){
         const searchedName = getName(search)
         console.log("getName", getName(search))
         // console.log(search)
-        if(!search){
-            return alert('Debe ingresar nombre')
-        }
-        if(searchedName.length === 0){
-            return alert('El perro solicitado no se encuentra en nuestra base de datos')
-        }
         dispatch(searchedName)
     }
 

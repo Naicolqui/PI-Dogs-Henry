@@ -75,6 +75,11 @@ h4 {
   margin-bottom: 0%;
 }
 
+.cardContainer:hover .textContainer .text {
+  margin-bottom: 0%;
+  width: 100%;
+}
+
 .cardContainer .textContainer .textTemper{
   color: white;
   text-align: left;

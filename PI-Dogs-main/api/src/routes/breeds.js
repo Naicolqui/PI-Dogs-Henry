@@ -79,6 +79,7 @@ router.get('/:id', async(req, res, next)=>{
     }
 });
 
+
 //---------------------------------Relación entre razas y temperamento --------------------------------------
 
 // router.post('/:idBreed/temper/:idTemper', async (req, res, next)=>{

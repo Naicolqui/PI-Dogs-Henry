@@ -14,12 +14,16 @@ export default function Cards(){
     const dispatch = useDispatch();
 
     //---------------------Paginado---------------------
+    //Creo un estado que tenga y setee la página actual
     const [currentPage, setCurrentPage] = useState(1);
+    //Acá saqué el set porque me tiraba un warning. ¿Es correcto?
     const [breedsPerPage] = useState(8);
+    //Acá lo dejé por las dudas jajaja
     const [order, setOrder] = useState('');
     const lastBreedIndex = currentPage * breedsPerPage;
     const firstBreedIndex = lastBreedIndex - breedsPerPage;
     // console.log("actualState", actualState)
+    //Le digo que en la pagina actual me tome el primer y último index
     const currentBreeds = actualState.slice(firstBreedIndex, lastBreedIndex);
 
     const paginate = (pageNum) => {
@@ -27,7 +31,8 @@ export default function Cards(){
     };
 
     //---------------------------Map de las Card para traer la info-----------------------------------
-    //Llamo a las razas con el useEffect
+    //Llamo a las razas y los temperamentos con el useEffect: asi simulo el estado de vida de los componentes y 
+    //despacho la acción que necesito.
     useEffect(()=>{
         dispatch(getBreed())
         dispatch(getTemper())
@@ -35,6 +40,7 @@ export default function Cards(){
 
 
     //-----------------------------Botones---------------------------------
+    //con estas funciones defino el funcionamiento (valga la redundancia) de los botones y los filtros utilizados
     function handleByTemper(e){
         e.preventDefault()
         setCurrentPage(1)
@@ -53,6 +59,7 @@ export default function Cards(){
         setCurrentPage(1)
         setOrder(`Ordenado ${e.target.value}`)
     }
+    //El setOrder me modifica el estado local y renderiza
 
     function handleByWeight(e){
         e.preventDefault()
@@ -61,11 +68,6 @@ export default function Cards(){
         setOrder(`Ordenado ${e.target.value}`)
     }
     //-------------------------------------Renderizado-------------------------------------
-    // .sort(function(a,b){
-    //     if(a.name<b.name) return -1;
-    //     if(a.name>b.name) return 1;
-    //     return 0;
-    // }) PARA EL FILTRO DE TEMPERAMENTOS
 
     return (
         <div className="containter">

@@ -9,6 +9,7 @@ export default function Paginate ({breedsPerPage, actualState, paginate}) {
     }
 
     //Acá renderizo todo
+    //Del map salen los números que después se renderizan en el home para poder navegar a través de las páginas
     return (
         <nav className="paginateContainer">
             <ul className="paginate">

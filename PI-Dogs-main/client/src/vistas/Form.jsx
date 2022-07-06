@@ -30,14 +30,12 @@ export default function Form(){
     //Creo un estado para el error de formulario
     const [formError, setFormError] = useState(true);
 
-    // Creo un estado para el botón de submit
-    // const [buttonError, setButtonError] =useState(true);
-
     //------------------Validaciones--------------------------
 
-    
+    //Creo este estado para habilitar o deshabilitar el botón del formulario
     const [isSubmit, setisSubmit] = useState(true)
 
+    //subFunciones de validación
     function exists(str){
         if (!str) return true;
         return false;
@@ -72,7 +70,7 @@ export default function Form(){
         return false;
     }
 
-
+    //La función madre
     function validation(data){
         let errors = {}
 
@@ -118,12 +116,12 @@ export default function Form(){
     let handleChange = (e) =>{
         setBreed({
             ...breed,
-            [e.target.name] : e.target.value
+            [e.target.name] : e.target.value //Los [] son para establecer una variable como propiedad.
         });
 
         setFormError(validation(breed));
 
-        console.log("isSubmit", isSubmit)
+        // console.log("isSubmit", isSubmit)
     }
 
     let handleSubmit = async (e) =>{
@@ -140,15 +138,15 @@ export default function Form(){
             high:"",
             life_span:"",
             tempers:[]
-        });
-        console.log(breed)
+        }); //Reinicio el formulario
+        // console.log(breed)
         alert("La raza ya fué creada")
     }
 
     let handleTemper = (e) =>{
         setBreed({
             ...breed,
-            tempers: [...new Set([...breed.tempers, e.target.value])]
+            tempers: [...new Set([...breed.tempers, e.target.value])] //con el set se borran elementos repetidos.
         })
 
         console.log("Handle temperamentos:", breed.tempers )
@@ -156,6 +154,8 @@ export default function Form(){
 
 
     //------------------Renderizado--------------------
+    
+    //Input: nombre:reconoce el evento, valor: identifica la propiedad, funcion: dicta las acciones
 
     return(
         <div className="formContainer">

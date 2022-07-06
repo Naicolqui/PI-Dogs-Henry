@@ -231,9 +231,40 @@ export default function Form(){
                 </div>
 
                 <div className="container">
-                    <label>Temperamento</label>
+                    <label>Temperamento 1</label>
                     <select name={'tempers'}
                       onChange={(e) => handleTemper(e)}>
+                        <option value="selected" hidden >Elegí un temperamento</option>
+                       {
+                            actualStateTemper?.map(t=>{
+                               return (
+                                   <option key={t.id} value={t.name}>{t.name}</option>
+                               );
+                            })
+                        }
+                     </select>
+                </div>
+
+                <div className="container">
+                    <label>Temperamento 2</label>
+                    <select name={'tempers'}
+                      onChange={(e) => handleTemper(e)}>
+                      <option value="selected" hidden >Elegí un temperamento</option>
+                       {
+                            actualStateTemper?.map(t=>{
+                               return (
+                                   <option key={t.id} value={t.name}>{t.name}</option>
+                               );
+                            })
+                        }
+                     </select>
+                </div>
+
+                <div className="container">
+                    <label>Temperamento 3</label>
+                    <select name={'tempers'}
+                      onChange={(e) => handleTemper(e)}>
+                      <option value="selected" hidden >Elegí un temperamento</option>
                        {
                             actualStateTemper?.map(t=>{
                                return (

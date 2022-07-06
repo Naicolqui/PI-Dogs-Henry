@@ -82,12 +82,14 @@ export default function Cards(){
                </select>
   
                <select className="select" onChange={e=> handleByName(e)}>
+                   <option value="selected" hidden >Ordenar alfabéticamente</option>
                    <option value="A-Z">A-Z</option>
                    <option value="Z-A">Z-A</option>
                    </select>
 
                    <select className="select" onChange={e=> handleByWeight(e)}>
                    {/* <option value="all">Todos los perros</option> */}
+                   <option value="selected" hidden >Ordenar por peso</option>
                    <option value="most">Más pesados</option>
                    <option value="less">Más livianos</option>
                    </select>

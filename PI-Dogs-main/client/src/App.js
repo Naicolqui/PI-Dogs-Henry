@@ -6,6 +6,7 @@ import LandingPage from './vistas/LandingPage'
 import NavBar from './vistas/NavBar';
 import Detail from './vistas/Detail';
 import Footer from './vistas/Footer';
+import Error from './vistas/Error';
 // import SearchBar from './components/SearchBar';
 
 
@@ -16,6 +17,7 @@ function App() {
         {/* <SearchBar/> */}
         <NavBar/>
         <Switch>
+          <Route path='*' component={Error}/>
           <Route exact path='/' component={LandingPage}/>
           <Route path='/home' component={Home}/>
           <Route path='/create' component={Form}/>

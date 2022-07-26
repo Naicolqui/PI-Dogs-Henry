@@ -1,13 +1,5 @@
-import {GET_BREED, GET_TEMPER, FILTER_BY_TEMPER, GET_BY_ORIGIN, GET_BY_NAME, GET_BY_WEIGHT, GET_BY_ID, GET_NAME} from '../actions'
+import {GET_BREED, GET_TEMPER, FILTER_BY_TEMPER, GET_BY_ORIGIN, GET_BY_NAME, GET_BY_WEIGHT, GET_BY_ID, GET_NAME, CLEAN_BREED} from '../actions'
 
-// const GET_BREED = "GET_BREED";
-// const GET_TEMPER = "GET_TEMPER";
-// const FILTER_BY_TEMPER = "FILTER_BY_TEMPER";
-// const GET_BY_ORIGIN = "GET_BY_ORIGIN";
-// const GET_BY_NAME = "GET_BY_NAME";
-// const GET_BY_WEIGHT = "GET_BY_WEIGHT";
-// const GET_BY_ID = "GET_BY_ID";
-// const GET_NAME = "GET_NAME";
 
 let initialState = {
     breed: [],
@@ -23,7 +15,8 @@ export default function rootReducer(state=initialState, action){
             return {
                 ...state,
                 breed: action.payload,
-                savedBreed: action.payload
+                savedBreed: action.payload,
+                //breedDetail: []
             };
         case GET_TEMPER:
             return{
@@ -34,6 +27,11 @@ export default function rootReducer(state=initialState, action){
             return{
                 ...state,
                 breedDetail: action.payload
+            };
+        case CLEAN_BREED:
+            return{
+                ...state,
+                breedDetail: []
             };
         case GET_NAME:
             return {

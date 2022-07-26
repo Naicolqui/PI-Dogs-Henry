@@ -54,7 +54,7 @@ router.post('/create', async (req, res, next)=>{
 
         await newBreed.addTempers(temperDB)
 
-        console.log(newBreed.tempers)
+        //console.log(newBreed.tempers)
         // console.log(newBreed)
         // console.log(temperDB)
         res.status(200).send("La raza fue creada correctamente")

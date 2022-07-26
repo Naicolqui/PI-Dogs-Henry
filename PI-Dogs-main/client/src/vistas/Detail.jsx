@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getBreedById } from "../actions";
+import { cleanBreeds, getBreedById } from "../actions";
 import LoadingDetail from "../components/LoadingDetail";
 import './Detail.css'
 
@@ -12,6 +12,7 @@ export default function Detail(){
 
     //Llamo a las razas con el useEffect
     useEffect(()=>{
+        dispatch(cleanBreeds())
         dispatch(getBreedById(params.id))
     }, [dispatch, params.id]);
     

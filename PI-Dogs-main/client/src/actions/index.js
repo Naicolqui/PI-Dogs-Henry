@@ -8,6 +8,7 @@ export const GET_BY_NAME = "GET_BY_NAME"
 export const GET_BY_WEIGHT = "GET_BY_WEIGHT";
 export const GET_BY_ID = "GET_BY_ID"; 
 export const GET_NAME = "GET_NAME";
+export const CLEAN_BREED = 'CLEAN_BREED';
 
 // export const getBreed = (name)=>{
 //     return async (dispatch)=>{
@@ -76,6 +77,12 @@ export function getName(name) {
         })
         .catch((err) => console.log(err));
     };
+  }
+
+  export function cleanBreeds(){
+    return{
+        type: CLEAN_BREED
+    }
   }
 
 

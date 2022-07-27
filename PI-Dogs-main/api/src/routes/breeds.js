@@ -1,3 +1,4 @@
+const { default: axios } = require('axios');
 const { Router } = require('express');
 const {Temper, Breed} = require ('../db');
 // const axios = require('axios');
@@ -96,3 +97,109 @@ router.get('/:id', async(req, res, next)=>{
 
 
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//FORMULARIO
+
+// select para los talles
+// input para el stock
+
+//-------<button>Agregar más talles</button>
+
+const handleStock = (e)=>{
+    axios.post("ruta del post")
+}
+
+const handleRelation = (e)=>{
+    axios.get("ruta del producto", id)
+}
+
+
+//     {
+//         "name": "Pesas rusas",
+//         "description": "Encontrá estas pesas en nuestro local o compralas por nuestra tienda virtual.",
+//         "price": 3000,
+//         "stock": 83,
+//         "rating": 5,
+//         "size": "3g, 4kg, 5g",
+//         "color": "Aleatorio",
+//         "image": "https://i.pinimg.com/originals/90/f8/35/90f8358aa8f86ec0c4653eee76e7f94b.jpg",
+//         "categories": [
+//             {
+//                 "name": "Accesorios"
+//             }
+//         ]
+//     },
+
+//     {
+//         "name": "Remeras Levis",
+//         "description": "Encontrá estas remeras hermosas en nuestro local o compralas por nuestra tienda virtual.",
+//         "price": 2500,
+//         "stock": 72,
+//         "rating": 5,
+//         "size": "l, xxl",
+//         "color": "Gris, Blanco",
+//         "image": "https://i.pinimg.com/564x/24/92/27/249227305c7ad2100d6035f4fdb2d43b.jpg",
+//         "categories": [
+//             {
+//                 "name": "Indumentaria de hombre"
+//             },
+//             {
+//                 "name": "Remeras"
+//             }
+//         ]
+//     },
+
+//     {
+//         "name": "Vinchas",
+//         "description": "Encontrá estas vinchas para deporte en nuestro local o compralas por nuestra tienda virtual.",
+//         "price": 1500,
+//         "stock": 180,
+//         "rating": 4,
+//         "size": "Único",
+//         "color": "Violeta, Rosa, Negro, Celeste",
+//         "image": "https://i.pinimg.com/564x/66/10/dd/6610dd1e944693d0dbb03c41e092f67b.jpg",
+//         "categories": [
+//             {
+//                 "name": "Accesorios"
+//             }
+//         ]
+//     },
+
+//     {
+//         "name": "Sudadera Adidas",
+//         "description": "Encontrá estas sudaderas hermosas en nuestro local o compralas por nuestra tienda virtual.",
+//         "price": 2000,
+//         "stock": 64,
+//         "rating": 5,
+//         "size": "m, l, xl",
+//         "color": "Amarillo, Rosa",
+//         "image": "https://i.pinimg.com/564x/f2/14/0e/f2140e597cfd4b4bfce2edffc939d862.jpg",
+//         "categories": [
+//             {
+//                 "name": "Indumentaria de mujer"
+//             },
+//             {
+//                 "name": "Remeras"
+//             }
+//         ]
+//     }
+
+// ]

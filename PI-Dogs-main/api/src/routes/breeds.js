@@ -203,3 +203,13 @@ const handleRelation = (e)=>{
 //     }
 
 // ]
+
+
+
+// values:
+// en el front: 
+//size_stock: "xl - 45"
+
+//let map = .map(e => e.size_stock)
+
+// map[i].split(/\s*-\s*/)

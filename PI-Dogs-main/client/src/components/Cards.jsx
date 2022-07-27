@@ -132,3 +132,50 @@ export default function Cards(){
         </div>
     )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+//DETAIL
+const handleSize=(e)=>{
+    //agarre el estado size desde reducer 
+    //y dependiendo de lo que yo seleccione (el talle) me aparece otro select que vaya
+    //desde el 1 hasta el num max de stock
+    //que se cargue en algun lado (const datos)
+}
+
+//CART
+//renderizar datos junto con el resto de la infomación
+
+//EN LA COMPRA
+//se crea un put donde se reste la cantidad comprada al stock del talle respectivo
+//0: xl ----- 1:s ------2:l <---El usuario lo selecciona
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
